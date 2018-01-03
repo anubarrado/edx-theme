@@ -22,13 +22,20 @@ $fondo_ce: #094fa3;
     text-align: center;
 }
 
+section > .course-profile{
+    height: initial;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .courses-container .courses .course {
     // border-bottom-color: #5e0000;
     border-bottom-color: $fondo_ce;
 }
 
 .courses-container .courses .course .course-image .cover-image .learn-more {
-    background-color: #193050
+    // background-color: #193050
+    background-color: fondo_ce;
 }
 
 .highlighted-courses .courses .course, 
