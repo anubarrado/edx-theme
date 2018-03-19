@@ -1,6 +1,6 @@
 $sans-serif: 'Helvetica';
 $header-bg: #0a0a0a;
-$red: rgb(94, 0, 0);
+$blue: rgb(94, 0, 0);
 $fondo_bs: #094d82;
 
 .header-global {
@@ -35,7 +35,7 @@ section > .course-profile{
 
 .courses-container .courses .course .course-image .cover-image .learn-more {
     // background-color: #193050
-    background-color: fondo_bs;
+    background-color: $fondo_bs;
 }
 
 .highlighted-courses .courses .course, 
@@ -96,4 +96,13 @@ section > .course-profile{
             float:left
         }
     }
+}
+
+// estilos para el logo
+.logo > a > img, .wrapper-logo > p > a > img  {
+    height: 100px;
+}
+
+.wrapper-logo {
+    margin-top: 0px !important;
 }
