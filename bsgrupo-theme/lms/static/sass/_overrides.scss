@@ -2,6 +2,7 @@ $sans-serif: 'Helvetica';
 $header-bg: #0a0a0a;
 $blue: rgb(94, 0, 0);
 $fondo_bs: #094d82;
+$verde_bs: #afca0a;
 
 .header-global {
     height: 90px;
@@ -105,4 +106,21 @@ section > .course-profile{
 
 .wrapper-logo {
     margin-top: 0px !important;
+}
+
+//estilos img slyder
+header > .outer-wrapper {
+    padding: 30px !important;
+}
+header > .outer-wrapper > .title {
+    text-align: center;
+	padding: 0px;
+	min-height:0;
+	background-color: $verde_bs;
+}
+header > .outer-wrapper > .title > .heading-group {
+    padding: 0px;
+}
+header > .outer-wrapper > .title > .heading-group > img {
+    width: 100%;
 }
