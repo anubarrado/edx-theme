@@ -18,7 +18,7 @@ from openedx.core.djangolib.markup import HTML, Text
                 ${homepage_overlay_html | n, decode.utf8}
               % else:
                   ## Translators: 'Open edX' is a registered trademark, please keep this untranslated. See http://open.edx.org for more information.
-                  <h1>${Text(_(u"Bienvenidos a la Plataforma Virtual de Compu Educación{registered_trademark}")).format(registered_trademark=HTML("<sup style='font-size: 65%'>&reg;</sup>"))}</h1>
+                  <h1>${Text(_(u"Bem-vindo à Plataforma Virtual de Green Tecnologia"))}</h1>
               % endif
             </div>
             % if settings.FEATURES.get('ENABLE_COURSE_DISCOVERY'):
