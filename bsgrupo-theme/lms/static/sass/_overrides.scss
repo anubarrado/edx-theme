@@ -124,3 +124,9 @@ header > .outer-wrapper > .title > .heading-group {
 header > .outer-wrapper > .title > .heading-group > img {
     width: 100%;
 }
+
+.course-info {
+    .course-profile-XMRBR101, .course-profile-XMRES101 {
+        background-image: url("../images/background-XMRxx101.png") !important;
+    }
+}
