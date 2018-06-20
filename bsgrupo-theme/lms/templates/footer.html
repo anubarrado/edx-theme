@@ -18,39 +18,39 @@
     % endif
   >
     <div class="colophon">
-
-      <div class="wrapper-logo">
-        <p>
-          <a href="/">
-            ## The default logo is a placeholder.
-            ## You can either replace this link entirely or update
-            ## the FOOTER_ORGANIZATION_IMAGE in Django settings.
-            ## If you customize FOOTER_ORGANIZATION_IMAGE, then the image
-            ## can be included in the footer on other sites
-            ## (e.g. a blog or marketing front-end) to provide a consistent
-            ## user experience.  See the branding app for details.
-            <img alt="organization logo" src="${footer['logo_image']}">
+      <p class="footer-text-highlighted">
+        Follow Us/Síguenos/Acompanhe:
+      </p>
+      <ol class="social-network">
+        <li>
+          <a href="https://www.facebook.com/BS.Grupo.Oficial">
+            <img src="${static.url('images/facebook.png')}" alt="Facebook">
           </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/BS_Grupo">
+            <img src="${static.url('images/twitter.png')}" alt="Twitter">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/user/BSGRUPOsac">
+            <img src="${static.url('images/youtube.png')}" alt="Youtube">
+          </a>
+        </li>
+        <li>
+          <a href="https://plus.google.com/114741006710838906433/posts">
+            <img src="${static.url('images/googleplus.png')}" alt="Google Plus">
+          </a>
+        </li>
+      </ol>
+      
+      <div class="directions">
+        <p>
+          <strong>Lima - Per&uacute;:</strong> Av. Pardo 650 Mirflores - Telf: +51(1) 207-2770 <br>
+          <strong>Arequipa:</strong> Av. Víctor Andrés Belaunde Urb. Atlas A-9, Umacollo - Telf: +51 54 25-8787 <br>
+          <strong>Bogotá:</strong> Av. Carrera 45 Nº 108-27 - Telf: +57(1) 381-9462
         </p>
       </div>
-	  
-      ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-      <!-- <p class="copyright">${footer['copyright']}</p> -->
-      <p class="copyright">
-        © 2016 Microsoft Corporation. All Rights Reserved. Except where noted. EdX, Open edX and the edX and Open EdX logos are registered trademarks or trademarks of edX Inc.
-      </p>
-
-      <nav class="nav-legal" aria-label="${_('Legal')}">
-        <ul>
-            <li class="nav-legal-01">
-              <a href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy & Cookies</a>
-            </li>
-            <li class="nav-legal-02">
-              <a href="/tos">Terms of Use</a>
-            </li>
-        </ul>
-      </nav>
-     
     </div>
 
     ## Please leave this link and use one of the logos provided
@@ -66,7 +66,27 @@
       </p>
     </div>
     % endif
+
+    <div class="bottom-footer">
+        ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
+        <!-- <p class="copyright">${footer['copyright']}</p> -->
+        <p class="copyright">
+          © 2016 Microsoft Corporation. All Rights Reserved. Except where noted. EdX, Open edX and the edX and Open EdX logos are registered trademarks or trademarks of edX Inc.
+        </p>
+    
+        <nav class="nav-legal" aria-label="${_('Legal')}">
+          <ul>
+              <li class="nav-legal-01">
+                <a href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy & Cookies</a>
+              </li>
+              <li class="nav-legal-02">
+                <a href="/tos">Terms of Use</a>
+              </li>
+          </ul>
+        </nav>
+      </div>
   </footer>
+
 </div>
 % if include_dependencies:
   <%static:js group='base_vendor'/>

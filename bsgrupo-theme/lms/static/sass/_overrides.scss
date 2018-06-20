@@ -1,22 +1,100 @@
+//importar fuentes
+@font-face {
+  font-family: "MyriadPro-Bold";
+  src: url('../fonts/MyriadPro/MyriadPro-Bold.otf') format('opentype');
+}
+@font-face {
+    font-family: "MyriadPro-Light";
+    src: url('../fonts/MyriadPro/MyriadPro-Light.otf') format('opentype');
+}
+@font-face {
+    font-family: "MyriadPro-Regular";
+    src: url('../fonts/MyriadPro/MyriadPro-Regular.otf') format('opentype');
+}
+
 $sans-serif: 'Helvetica';
-$header-bg: #0a0a0a;
-$blue: rgb(94, 0, 0);
+$myriad_bold: 'MyriadPro-Bold';
+$myriad_light: 'MyriadPro-Light';
+$myriad_regular: 'MyriadPro-Regular';
+
+//colores bs originales
 $fondo_bs: #094d82;
 $verde_bs: #afca0a;
 
+//colores bs thema
+$blanco: #ffffff;
+$azul_bs: #005782;
+$naranja_bs: #f9a133;
+$naranja_banner_bs: #f9b233;
+$celeste_bs: #7cb6ef;
+$blanco_fondo_bs: hsl(0, 0%, 96%);
+$verde_linea_bs: #AFCA0A;
+$fondo_footer_bs: #ECECEC;
+$gris_linea_bs: #E0DFDF;
+$letra_celeste_bs: #29A9E1;
+$azul_organizacion_bs: #004B83;
+$gris_letra_bs: #878786;
+
+body {
+    font-family: $myriad_regular;
+    font-size: 13pt;
+}
+
 .header-global {
-    height: 90px;
+    background-color: $azul_bs;
     border-bottom: none;
+    color: $blanco;
+    font-family: $myriad_bold;
+    font-size: 12pt;
+    height: 226px;
 
     .wrapper-header {
-        padding-top: 25px;
+        padding-top: 0px;
         padding-bottom: 25px;
+        
+        ol {
+            margin-top: 70px;
+
+            li > a {
+                background-color: $naranja_bs;
+                border-radius: 8px;
+                color: $blanco;
+                font-size: 13pt;
+                padding: 15px;
+            }
+        }
     }
+
+    .main-menu {
+        display: block;        
+        font-size: 13pt;
+        margin: 0 auto;
+        max-width: 1180px;
+        padding-top: 100px;
+        ol {
+            background-color: $azul_bs;
+            float: right;
+            list-style: none;
+            padding: 7px;
+            li{
+                display: inline;
+                padding: 0 10px;
+                a {
+                    color: $blanco;
+                }
+            }            
+        }
+    }
+}
+
+.content-wrapper {
+    padding-top: 30px;
+    background-color: $blanco;
 }
 
 .home > header {
     // background-color: #5e0000;
-    background-color: $fondo_bs;
+    background-color: $naranja_banner_bs;
 }
 
 .title > .heading-group > h1 {
@@ -31,18 +109,23 @@ section > .course-profile{
 
 .courses-container .courses .course {
     // border-bottom-color: #5e0000;
-    border-bottom-color: $fondo_bs;
+    border-bottom-color: $blanco_fondo_bs;
 }
 
-.courses-container .courses .course .course-image .cover-image .learn-more {
+.courses-container .courses .course .course-image .cover-image {
     // background-color: #193050
-    background-color: $fondo_bs;
+    background-color: $blanco;
+}
+
+.learn-more {
+    background-color: $azul_bs;
 }
 
 .highlighted-courses .courses .course, 
 .find-courses .courses .course {
     // border-color: #a9bbd3
-    border-color: $fondo_bs;
+    background-color: $blanco;
+    border-color: $blanco_fondo_bs;
 }
 
 .header-global .nav-courseware li .btn, 
@@ -77,61 +160,185 @@ section > .course-profile{
 }
 
 .wrapper-footer {
-    
+    background-color: $fondo_footer_bs;
+    border-top: 2px solid $verde_linea_bs;
     box-shadow: 0 -1px 5px 0 rgba(94,0,0,0.1);
-    // border-top: 1px solid #5E0000;
-    border-top: 1px solid $fondo_bs;
-
     footer#footer-openedx .colophon 
     {
-
         .wrapper-logo {
             margin-right: 20px;
         }
-
         .nav-colophon {
             margin: 30px 0 2px 0;
         }
-    
+        .footer-text-highlighted {
+            color: $azul_organizacion_bs;
+            text-transform: uppercase;
+            font-size: 12pt;
+        }
+        .social-network {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+                display: inline;
+                img {
+                    height: 35px;
+                }
+            }
+        }
+        .directions {
+            font-family: $myriad_regular;
+            font-size: 8pt;
+            padding: 15px 0;
+            strong {
+                font-family: $myriad_bold;
+            }        
+        }
         .wrapper-logo, .nav-colophon, p.copyright, nav.nav-legal {
             float:left
         }
     }
-}
-
-// estilos para el logo
-.logo > a > img, .wrapper-logo > p > a > img  {
-    height: 100px;
-}
-
-.wrapper-logo {
-    margin-top: 0px !important;
+    footer#footer-openedx .footer-about-openedx {
+        float: right;
+        margin: 0;
+    }
+    footer#footer-openedx .bottom-footer {
+        border-top: 2px solid $gris_linea_bs;
+        padding-top: 15px;
+        float: left;
+        width: 100%;
+    }
 }
 
 //estilos img slyder
-header > .outer-wrapper {
-    padding: 30px !important;
+.home{
+    header {
+        .outer-wrapper {
+            padding: 0;
+            .title {
+                background-color: $naranja_banner_bs;
+                box-shadow: none;
+                margin: 0;
+                min-height:0;
+                padding: 0px;
+                text-align: center;
+                width: 100%;
+                .heading-group {
+                    padding: 0px;
+                    img {
+                        // width: 100%;
+                    }
+                }
+            }
+        }
+    }
 }
-header > .outer-wrapper > .title {
-    text-align: center;
-	padding: 0px;
-	min-height:0;
-	background-color: $verde_bs;
-}
-header > .outer-wrapper > .title > .heading-group {
-    padding: 0px;
-}
-header > .outer-wrapper > .title > .heading-group > img {
-    width: 100%;
+
+.course {
+    background-color: $blanco;
 }
 
 .course-info {
+    header.course-profile {
+        background-color: $blanco;
+        border: none;
+        box-shadow: none;
+        height: 100%;
+        font-family: $myriad_regular;
+        font-size: 14pt;
+        padding: 60px 0;
+        .intro-inner-wrapper {
+            border: 2px solid $fondo_footer_bs;
+            border-radius: 10px;
+            box-shadow: none;
+            .table {
+                .intro {
+                    .course-organization-name-about {
+                        background-color: $azul_organizacion_bs;
+                        background-image: none;
+                        border: none;
+                        box-shadow: none;
+                        font-family: $myriad_regular;
+                        font-size: 18pt;
+                        font-weight: bold;
+                        padding: 10px 15px;
+                        vertical-align: middle;
+                        text-shadow: none;
+                        text-transform: capitalize;
+                    }
+                    .main-cta > a.register {
+                        background: $naranja_bs;
+                        border: none;
+                        border-radius: 5px;
+                        box-shadow: none;
+                        font-weight: bold;
+                        margin: 0 auto;
+                        text-shadow: none;
+                    }
+                }
+                .media {
+                    vertical-align: middle;
+                    .hero {
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
     .course-profile-XMRBR101, .course-profile-XMRES101 {
         background-image: url("../images/background-XMRxx101.png") !important;
         background-position: right !important;
     }
     .course-organization-name-XMRBR101, .course-organization-name-XMRES101 {
         display: none;
+    }
+
+    .container {
+        background-color: $blanco;
+        border-top: 1px solid $fondo_footer_bs;
+        .details {
+            font-size: 13pt;
+            font-family: $myriad_regular;
+            .inner-wrapper {
+                h2 {
+                    color: $letra_celeste_bs;
+                    font-family: $myriad_bold;
+                }
+                .course-staff {
+                    .teacher {
+                        border: 1px solid $fondo_footer_bs;
+                        padding: 20px;
+                        margin: 0;
+                        h3 {
+                            color: $naranja_bs;
+                        }
+                        .teacher-highlighted {
+                            text-align: center;
+                        }
+                        .teacher-image {
+                            background: $letra_celeste_bs;
+                            border-radius: 15px;
+                            border: 1px solid $letra_celeste_bs;
+                        }
+                        .teacher-position {
+
+                        }
+                        .teacher-company {
+                            color: $gris_letra_bs;
+                        }
+                    }
+                }
+            }
+        }
+        .course-sidebar {
+            header .social-sharing .share{
+                opacity: 1;
+                img {
+                    width: 30px;
+                }
+            }
+        }
     }
 }
 
