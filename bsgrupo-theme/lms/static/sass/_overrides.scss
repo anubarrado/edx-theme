@@ -90,6 +90,27 @@ body {
 .content-wrapper {
     padding-top: 30px;
     background-color: $blanco;
+
+    //etilos dashboard
+    #dashboard-main {
+        #my-courses {
+            .wrapper-header-courses .header-courses {
+                color: $naranja_bs;
+                font-weight: bold;
+            }
+            .listing-courses {
+                .course-item .course-container .course .details {
+                    .wrapper-course-details .wrapper-course-actions .enter-course{
+                        float: right;
+                        background: $naranja_bs;
+                        border: 1px solid $naranja_bs;
+                        color: $blanco;
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 .home > header {
@@ -267,7 +288,7 @@ section > .course-profile{
                         text-shadow: none;
                         text-transform: capitalize;
                     }
-                    .main-cta > a.register {
+                    .main-cta > a.register, .main-cta > a > strong {
                         background: $naranja_bs;
                         border: none;
                         border-radius: 5px;
