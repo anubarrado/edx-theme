@@ -1,8 +1,8 @@
 $sans-serif: 'Helvetica';
 $header-bg: #0a0a0a;
 // $blue: rgb(0, 17, 94);
-$blue: #0075b4;
-$fondo_gt: #007c00;
+$blue: #0072bc;
+$fondo: #003c7a;
 
 .header-global {
     height: 90px;
@@ -16,7 +16,7 @@ $fondo_gt: #007c00;
 
 .home > header {
     // background-color: #5e0000;
-    background-color: $fondo_gt;
+    background-color: $fondo;
 }
 
 .title > .heading-group > h1 {
@@ -31,18 +31,18 @@ section > .course-profile{
 
 .courses-container .courses .course {
     // border-bottom-color: #5e0000;
-    border-bottom-color: $fondo_gt;
+    border-bottom-color: $fondo;
 }
 
 .courses-container .courses .course .course-image .cover-image .learn-more {
     // background-color: #193050
-    background-color: fondo_gt;
+    background-color: fondo;
 }
 
 .highlighted-courses .courses .course, 
 .find-courses .courses .course {
     // border-color: #a9bbd3
-    border-color: $fondo_gt;
+    border-color: $fondo;
 }
 
 .header-global .nav-courseware li .btn, 
@@ -80,7 +80,7 @@ section > .course-profile{
     
     box-shadow: 0 -1px 5px 0 rgba(94,0,0,0.1);
     // border-top: 1px solid #5E0000;
-    border-top: 1px solid $fondo_gt;
+    border-top: 1px solid $fondo;
 
     footer#footer-openedx .colophon 
     {
