@@ -47,22 +47,23 @@ site_status_msg = get_site_status_msg(course_id)
 </div>
 % endif
 </%block>
-  <header id="global-navigation" class="header-global ${"slim" if course else ""}" >
+  <!-- <header id="global-navigation" class="header-global ${"slim" if course else ""}" > -->
+  <header id="global-navigation" class="header-global" >
     <nav class="wrapper-header" aria-label="${_('Global')}">
-    <h1 class="logo">
-      <a href="${marketing_link('ROOT')}">
-        <%block name="navigation_logo">
-        <%
-        logo_url = get_enterprise_customer_logo_url(request)
-        logo_size = 'ec-logo-size'
-        if logo_url is None:
-            logo_url = branding_api.get_logo_url(is_secure)
-            logo_size = ''
-        %>
-            <img class="${logo_size}" src="${logo_url}" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}"/>
-        </%block>
-      </a>
-    </h1>
+      <h1 class="logo">
+        <a href="${marketing_link('ROOT')}">
+          <%block name="navigation_logo">
+          <%
+          logo_url = get_enterprise_customer_logo_url(request)
+          logo_size = 'ec-logo-size'
+          if logo_url is None:
+              logo_url = branding_api.get_logo_url(is_secure)
+              logo_size = ''
+          %>
+              <img class="${logo_size}" src="${logo_url}" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}"/>
+          </%block>
+        </a>
+      </h1>
 
     % if course:
       <h2 class="course-header"><span class="provider">${course.display_org_with_default}:</span>
@@ -108,9 +109,9 @@ site_status_msg = get_site_status_msg(course_id)
 
       <%include file="user_dropdown.html"/>
 
-      <a href="${get_online_help_info(online_help_token)['doc_url']}" 
+      <!-- <a href="${get_online_help_info(online_help_token)['doc_url']}" 
          target="_blank"
-         class="doc-link">${_("Help")}</a>
+         class="doc-link">${_("Help")}</a> -->
 
       % if should_display_shopping_cart_func() and not (course and static.is_request_in_themed_site()): # see shoppingcart.context_processor.user_has_cart_context_processor
         <ol class="user">
@@ -205,15 +206,29 @@ site_status_msg = get_site_status_msg(course_id)
     <div class="main-menu">
         <ol class="right list-inline">
             <li class="item nav-global-01">
-                <a href="/">${_("Index")}</a>
+                <a href="${marketing_link('ROOT')}">${_("Home")}</a>
             </li>
             <li class="item nav-global-01">
-                <a href="/">${_("Explore courses")}</a>
+              <a href="${marketing_link('COURSES')}">${_('Explore courses')}</a>
             </li>
             <li class="item nav-global-01">
-                <a href="/">${_("Mis Cursos")}</a>
+              <a href="${reverse('dashboard')}">${_("Courses")}</a>
             </li>
         </ol>
+    </div>
+    <div class="course-naming">
+      % if course:
+      <strong class="course-org">${course.display_org_with_default}:</strong> 
+        <span class="course-nmb">${course.display_number_with_default}</span>
+        <%
+        display_name = course.display_name_with_default
+        if settings.FEATURES.get('CUSTOM_COURSES_EDX', False):
+          ccx = get_current_ccx(course.id)
+          if ccx:
+            display_name = ccx.display_name
+        %>
+        <span class="course-nm">${display_name}</span>
+      % endif
     </div>
 </header>
 % if course:

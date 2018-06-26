@@ -17,6 +17,8 @@ $myriad_bold: 'MyriadPro-Bold';
 $myriad_light: 'MyriadPro-Light';
 $myriad_regular: 'MyriadPro-Regular';
 
+$body-font-family: $myriad_regular $sans-serif !default;
+
 //colores bs originales
 $fondo_bs: #094d82;
 $verde_bs: #afca0a;
@@ -51,7 +53,13 @@ body {
     .wrapper-header {
         padding-top: 0px;
         padding-bottom: 25px;
-        
+       
+        .course-header{
+            font-size: 12pt;
+            color: $azul_organizacion_bs;
+            margin-top: 230px;
+            
+        }
         ol {
             margin-top: 70px;
 
@@ -60,7 +68,6 @@ body {
                 border-radius: 8px;
                 color: $blanco;
                 font-size: 13pt;
-                padding: 15px;
             }
         }
     }
@@ -85,6 +92,29 @@ body {
             }            
         }
     }
+
+    .course-naming {
+        display: block;        
+        font-size: 13pt;
+        margin: 0 auto;
+        max-width: 1180px;
+        padding-top: 100px;
+        h2 {
+            color: green;
+        }
+    }
+}
+
+.header-global.slim h1.logo img {
+    height: auto;
+}
+.header-global.slim {
+    background-color: $azul_bs;
+    border-bottom: none;
+    color: $blanco;
+    font-family: $myriad_bold;
+    font-size: 12pt;
+    height: 226px;
 }
 
 .content-wrapper {
@@ -194,8 +224,10 @@ section > .course-profile{
         }
         .footer-text-highlighted {
             color: $azul_organizacion_bs;
+            font-size: 10pt;
+            font-weight: bold;
+            padding-bottom: 10px;
             text-transform: uppercase;
-            font-size: 12pt;
         }
         .social-network {
             list-style: none;
