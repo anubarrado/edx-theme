@@ -211,23 +211,27 @@ site_status_msg = get_site_status_msg(course_id)
             <li class="item nav-global-01">
               <a href="${marketing_link('COURSES')}">${_('Explore courses')}</a>
             </li>
+            % if user.is_authenticated():
             <li class="item nav-global-01">
               <a href="${reverse('dashboard')}">${_("Courses")}</a>
             </li>
+            % endif
         </ol>
     </div>
     <div class="course-naming">
       % if course:
-      <strong class="course-org">${course.display_org_with_default}:</strong> 
-        <span class="course-nmb">${course.display_number_with_default}</span>
-        <%
-        display_name = course.display_name_with_default
-        if settings.FEATURES.get('CUSTOM_COURSES_EDX', False):
-          ccx = get_current_ccx(course.id)
-          if ccx:
-            display_name = ccx.display_name
-        %>
-        <span class="course-nm">${display_name}</span>
+      <p>
+        <strong class="course-org">${course.display_org_with_default}:</strong> 
+          <span class="course-nmb">${course.display_number_with_default}</span>
+          <%
+          display_name = course.display_name_with_default
+          if settings.FEATURES.get('CUSTOM_COURSES_EDX', False):
+            ccx = get_current_ccx(course.id)
+            if ccx:
+              display_name = ccx.display_name
+          %>
+          <span class="course-nm">${display_name}</span>
+      </p>
       % endif
     </div>
 </header>
