@@ -1,4 +1,14 @@
+@import '../colors';
+@import '../fonts';
+@import '../header';
+@import '../footer';
 
-.wrapper-logo > p > a > img {
-    height: 100px;
+body.view-in-course{
+    background: $blanco;
 }
+.content-wrapper {
+    margin-top: 60px;
+}
+.course-naming {
+    display: block !important;  
+}   

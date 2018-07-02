@@ -1,0 +1,90 @@
+@import 'colors';
+@import 'fonts';
+
+.header-global {
+    background-color: $azul_bs;
+    border-bottom: none;
+    color: $blanco;
+    font-family: $myriad_bold;
+    font-size: 12pt;
+    height: 226px;
+
+    .wrapper-header {
+        height: 70%;
+        padding: 0 2%;
+        // padding-top: 0px;
+        // padding-bottom: 25px;
+       
+        .course-header{
+            font-size: 12pt;
+            color: $azul_organizacion_bs;
+            margin-top: 230px;
+            
+        }
+        ol {
+            margin-top: 70px;
+
+            li > a {
+                background-color: $naranja_bs;
+                border-radius: 8px;
+                color: $blanco;
+                font-size: 13pt;
+            }
+        }
+    }
+
+    .main-menu {
+        display: block;        
+        font-size: 13pt;
+        height: 30%;
+        margin: 0 auto;
+        max-width: 1180px;
+        // padding-top: 100px;
+        ol {
+            background-color: $azul_bs;
+            float: right;
+            list-style: none;
+            padding: 7px;
+            li{
+                display: inline;
+                padding: 0 10px;
+                a {
+                    color: $blanco;
+                }
+            }            
+        }
+    }
+
+    .course-naming {
+        color: $azul_organizacion_bs;
+        display: none;  
+        font-family: $myriad_regular;      
+        font-size: 13pt;
+        height: 30px;
+        margin: 0 auto;
+        max-width: 1180px;
+        p {
+            padding-left: 240px;
+            padding-top: 20px;
+            strong {
+                text-transform: uppercase;
+            }
+        }
+        h2 {
+            display: block;        
+            color: green;
+        }
+    }
+}
+
+.header-global.slim h1.logo img {
+    height: auto;
+}
+.header-global.slim {
+    background-color: $azul_bs;
+    border-bottom: none;
+    color: $blanco;
+    font-family: $myriad_bold;
+    font-size: 12pt;
+    height: 226px;
+}

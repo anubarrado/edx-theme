@@ -1,0 +1,76 @@
+@import '../colors';
+@import '../fonts';
+
+.wrapper-footer {
+    background-color: $fondo_footer_bs;
+    border-top: 2px solid $verde_linea_bs;
+    box-shadow: 0 -1px 5px 0 rgba(94,0,0,0.1);
+    font-family: $myriad_regular;
+
+    footer#footer-openedx .colophon 
+    {
+        .wrapper-logo {
+            margin-right: 20px;
+        }
+        .nav-colophon {
+            margin: 30px 0 2px 0;
+        }
+        .footer-text-highlighted {
+            color: $azul_organizacion_bs;
+            font-family: $myriad_bold;
+            font-size: 12pt;
+            font-weight: bold;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .social-network {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+                display: inline;
+                img {
+                    height: 35px;
+                }
+            }
+        }
+        .directions {
+            font-family: $myriad_regular;
+            font-size: 10pt;
+            padding: 15px 0;
+            p {
+                font-family: $myriad_regular;
+                margin: 0;
+                padding: 0;
+            }
+            strong {
+                font-family: $myriad_bold;
+            }        
+        }
+        .wrapper-logo, .nav-colophon, p.copyright, nav.nav-legal {
+            float: left;
+        }
+    }
+    footer#footer-openedx .footer-about-openedx {
+        float: right;
+        margin: 0;
+    }
+    footer#footer-openedx .bottom-footer {
+        font-family: $myriad_regular;
+        border-top: 2px solid $gris_linea_bs;
+        padding-top: 15px;
+        float: left;
+        width: 100%;
+        .copyright {
+            font-family: $myriad_regular;
+        }
+        nav.nav-legal {
+            float: left;
+            ul {
+                font-family: $myriad_regular;
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+}

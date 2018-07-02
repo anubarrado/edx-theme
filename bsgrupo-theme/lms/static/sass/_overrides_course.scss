@@ -1,4 +1,7 @@
-$blanco: #ffffff;
+@import 'colors';
+@import 'fonts';
+@import 'header';
+@import 'footer';
 
 body.view-in-course{
     background: $blanco;
