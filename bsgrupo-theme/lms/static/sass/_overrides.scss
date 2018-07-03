@@ -5,7 +5,7 @@
 
 body {
     font-family: $myriad_regular;
-    font-size: 13pt;
+    font-size: 15px;
 }
 
 .content-wrapper {
@@ -15,10 +15,34 @@ body {
     //etilos dashboard
     #dashboard-main {
         #my-courses {
-            .wrapper-header-courses .header-courses {
-                color: $naranja_bs;
-                font-weight: bold;
+            width: 100%;
+
+            .wrapper-header-courses {
+                border-bottom: 2px solid $gris_linea_bs;
+                .header-courses {
+                    color: $naranja_bs;
+                    font-family: $myriad_regular;
+                    font-weight: bold;
+                    padding-left: 2%;
+                }
             }
+
+            .course .details .course-title a {
+                font-family: $myriad_regular;
+                font-size: 30px;
+            }
+
+            .empty-dashboard-message > a {
+                background: $celeste_boton_bs;
+                border: 1px solid $celeste_boton_bs;
+                border-radius: 5px;
+                padding: 10px 20px;
+                width: 45%;
+                img {
+                    height: 35px;
+                }
+            }
+
             .listing-courses {
                 .course-item .course-container .course .details {
                     .wrapper-course-details .wrapper-course-actions .enter-course{
@@ -101,7 +125,7 @@ section > .course-profile{
     background-color: #193050
 }
 
-//estilos img slyder
+//styles img slyder
 .home{
     header {
         .outer-wrapper {
@@ -117,7 +141,7 @@ section > .course-profile{
                 .heading-group {
                     padding: 0px;
                     img {
-                        // width: 100%;
+                        width: 100%;
                     }
                 }
             }
@@ -144,6 +168,9 @@ section > .course-profile{
             box-shadow: none;
             .table {
                 .intro {
+                    .heading-group h1 {
+                        font-family: $myriad_regular;
+                    }
                     .course-organization-name-about {
                         background-color: $azul_organizacion_bs;
                         background-image: none;
@@ -162,6 +189,8 @@ section > .course-profile{
                         border: none;
                         border-radius: 5px;
                         box-shadow: none;
+                        font-family: $myriad_regular;
+                        font-size: 20px;
                         font-weight: bold;
                         margin: 0 auto;
                         text-shadow: none;
@@ -188,7 +217,7 @@ section > .course-profile{
         background-color: $blanco;
         border-top: 1px solid $fondo_footer_bs;
         .details {
-            font-size: 13pt;
+            font-size: 15px;
             font-family: $myriad_regular;
             .inner-wrapper {
                 h2 {
@@ -232,8 +261,30 @@ section > .course-profile{
     }
 }
 
-// estilos tos
+// styles tos
 .tos-body {
     font-size: 14px;
     text-align: justify; 
+}
+
+//styles accounn activation
+.container.activation {
+    .message {
+        box-shadow: none;
+        h1.valid {
+            background: $naranja_bs;
+            border: 1px solid $naranja_bs;
+            border-radius: 10px;
+            color: $blanco;
+            font-family: $myriad_bold;
+            margin: 0 auto;
+            width: 80%;
+        }
+    }
+}
+.wrapper-msg.urgency-high {
+    background: $fondo_footer_bs;
+    .msg{
+        color: $celeste_letra_bs;
+    }
 }
