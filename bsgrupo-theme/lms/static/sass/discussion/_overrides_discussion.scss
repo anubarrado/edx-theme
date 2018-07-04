@@ -1,0 +1,20 @@
+@import '../colors';
+// @import '../fonts';
+@import 'fonts_discussion';
+@import '../header';
+@import '../footer';
+
+body.view-in-course{
+    background: $blanco;
+}
+
+.window-wrap {
+    background: $blanco;
+
+    .content-wrapper {
+        margin-top: 30px;
+    }
+    .course-naming {
+        display: block !important;  
+    }   
+}

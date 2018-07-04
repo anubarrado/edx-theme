@@ -1,22 +1,66 @@
-$sans-serif: 'Helvetica';
-$header-bg: #0a0a0a;
-$blue: rgb(94, 0, 0);
-$fondo_bs: #094d82;
-$verde_bs: #afca0a;
+@import 'colors';
+@import 'fonts';
+@import 'header';
+@import 'footer';
 
-.header-global {
-    height: 90px;
-    border-bottom: none;
+body {
+    font-family: $myriad_regular;
+    font-size: 15px;
+}
 
-    .wrapper-header {
-        padding-top: 25px;
-        padding-bottom: 25px;
+.content-wrapper {
+    background-color: $blanco;
+    margin-top: 30px;
+
+    //etilos dashboard
+    #dashboard-main {
+        #my-courses {
+            width: 100%;
+
+            .wrapper-header-courses {
+                border-bottom: 1px solid $gris_linea_bs;
+                .header-courses {
+                    color: $naranja_bs;
+                    font-family: $myriad_regular;
+                    font-weight: bold;
+                    padding-left: 2%;
+                }
+            }
+
+            .course .details .course-title a {
+                font-family: $myriad_regular;
+                font-size: 30px;
+            }
+
+            .empty-dashboard-message > a {
+                background: $celeste_boton_bs;
+                border: 1px solid $celeste_boton_bs;
+                border-radius: 5px;
+                padding: 10px 20px;
+                width: 45%;
+                img {
+                    height: 35px;
+                }
+            }
+
+            .listing-courses {
+                .course-item .course-container .course .details {
+                    .wrapper-course-details .wrapper-course-actions .enter-course{
+                        float: right;
+                        background: $naranja_bs;
+                        border: 1px solid $naranja_bs;
+                        color: $blanco;
+                    }
+                }
+            }
+        }
     }
+    
 }
 
 .home > header {
     // background-color: #5e0000;
-    background-color: $fondo_bs;
+    background-color: $naranja_banner_bs;
 }
 
 .title > .heading-group > h1 {
@@ -31,18 +75,23 @@ section > .course-profile{
 
 .courses-container .courses .course {
     // border-bottom-color: #5e0000;
-    border-bottom-color: $fondo_bs;
+    border-bottom-color: $blanco_fondo_bs;
 }
 
-.courses-container .courses .course .course-image .cover-image .learn-more {
+.courses-container .courses .course .course-image .cover-image {
     // background-color: #193050
-    background-color: $fondo_bs;
+    background-color: $blanco;
+}
+
+.learn-more {
+    background-color: $azul_bs;
 }
 
 .highlighted-courses .courses .course, 
 .find-courses .courses .course {
     // border-color: #a9bbd3
-    border-color: $fondo_bs;
+    background-color: $blanco;
+    border-color: $blanco_fondo_bs;
 }
 
 .header-global .nav-courseware li .btn, 
@@ -76,56 +125,89 @@ section > .course-profile{
     background-color: #193050
 }
 
-.wrapper-footer {
-    
-    box-shadow: 0 -1px 5px 0 rgba(94,0,0,0.1);
-    // border-top: 1px solid #5E0000;
-    border-top: 1px solid $fondo_bs;
-
-    footer#footer-openedx .colophon 
-    {
-
-        .wrapper-logo {
-            margin-right: 20px;
+//styles img slyder
+.home{
+    header {
+        .outer-wrapper {
+            padding: 0;
+            .title {
+                background-color: $naranja_banner_bs;
+                box-shadow: none;
+                margin: 0;
+                min-height:0;
+                padding: 0px;
+                text-align: center;
+                width: 100%;
+                .heading-group {
+                    padding: 0px;
+                    img {
+                        width: 100% !important;
+                    }
+                }
+            }
         }
-
-        .nav-colophon {
-            margin: 30px 0 2px 0;
-        }
-    
-        .wrapper-logo, .nav-colophon, p.copyright, nav.nav-legal {
-            float:left
-        }
+    }
+    .highlighted-courses {
+        margin-bottom: 5px;
     }
 }
 
-// estilos para el logo
-.logo > a > img, .wrapper-logo > p > a > img  {
-    height: 100px;
-}
-
-.wrapper-logo {
-    margin-top: 0px !important;
-}
-
-//estilos img slyder
-header > .outer-wrapper {
-    padding: 30px !important;
-}
-header > .outer-wrapper > .title {
-    text-align: center;
-	padding: 0px;
-	min-height:0;
-	background-color: $verde_bs;
-}
-header > .outer-wrapper > .title > .heading-group {
-    padding: 0px;
-}
-header > .outer-wrapper > .title > .heading-group > img {
-    width: 100%;
+.course {
+    background-color: $blanco;
 }
 
 .course-info {
+    header.course-profile {
+        background-color: $blanco;
+        border: none;
+        box-shadow: none;
+        height: 100%;
+        font-family: $myriad_regular;
+        font-size: 14pt;
+        padding: 60px 0;
+        .intro-inner-wrapper {
+            border: 2px solid $fondo_footer_bs;
+            border-radius: 10px;
+            box-shadow: none;
+            .table {
+                .intro {
+                    .heading-group h1 {
+                        font-family: $myriad_regular;
+                    }
+                    .course-organization-name-about {
+                        background-color: $azul_organizacion_bs;
+                        background-image: none;
+                        border: none;
+                        box-shadow: none;
+                        font-family: $myriad_regular;
+                        font-size: 18pt;
+                        font-weight: bold;
+                        padding: 10px 15px;
+                        vertical-align: middle;
+                        text-shadow: none;
+                        text-transform: capitalize;
+                    }
+                    .main-cta > a.register, .main-cta > a > strong {
+                        background: $naranja_bs;
+                        border: none;
+                        border-radius: 5px;
+                        box-shadow: none;
+                        font-family: $myriad_regular;
+                        font-size: 20px;
+                        font-weight: bold;
+                        margin: 0 auto;
+                        text-shadow: none;
+                    }
+                }
+                .media {
+                    vertical-align: middle;
+                    .hero {
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
     .course-profile-XMRBR101, .course-profile-XMRES101 {
         background-image: url("../images/background-XMRxx101.png") !important;
         background-position: right !important;
@@ -133,10 +215,79 @@ header > .outer-wrapper > .title > .heading-group > img {
     .course-organization-name-XMRBR101, .course-organization-name-XMRES101 {
         display: none;
     }
+
+    .container {
+        background-color: $blanco;
+        border-top: 1px solid $fondo_footer_bs;
+        .details {
+            font-size: 15px;
+            font-family: $myriad_regular;
+            .inner-wrapper {
+                h2 {
+                    color: $letra_celeste_bs;
+                    font-family: $myriad_bold;
+                }
+                .course-staff {
+                    .teacher {
+                        border: 1px solid $fondo_footer_bs;
+                        padding: 20px;
+                        margin: 0;
+                        h3 {
+                            color: $naranja_bs;
+                        }
+                        .teacher-highlighted {
+                            text-align: center;
+                        }
+                        .teacher-image {
+                            background: $letra_celeste_bs;
+                            border-radius: 15px;
+                            border: 1px solid $letra_celeste_bs;
+                        }
+                        .teacher-position {
+
+                        }
+                        .teacher-company {
+                            color: $gris_letra_bs;
+                        }
+                    }
+                }
+            }
+        }
+        .course-sidebar {
+            header .social-sharing .share{
+                opacity: 1;
+                img {
+                    width: 30px;
+                }
+            }
+        }
+    }
 }
 
-// estilos tos
+// styles tos
 .tos-body {
     font-size: 14px;
     text-align: justify; 
+}
+
+//styles accounn activation
+.container.activation {
+    .message {
+        box-shadow: none;
+        h1.valid {
+            background: $naranja_bs;
+            border: 1px solid $naranja_bs;
+            border-radius: 10px;
+            color: $blanco;
+            font-family: $myriad_bold;
+            margin: 0 auto;
+            width: 80%;
+        }
+    }
+}
+.wrapper-msg.urgency-high {
+    background: $fondo_footer_bs;
+    .msg{
+        color: $celeste_letra_bs;
+    }
 }

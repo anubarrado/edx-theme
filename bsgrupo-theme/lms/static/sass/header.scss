@@ -1,0 +1,141 @@
+@import 'colors';
+@import 'fonts';
+
+.header-global {
+    background-color: $azul_bs;
+    border-bottom: none;
+    color: $blanco;
+    font-family: $myriad_bold;
+    font-size: 14px;
+    height: 170px;
+
+    .wrapper-header {
+        height: 120px;
+        padding: 0 2%;
+        // padding-top: 0px;
+        // padding-bottom: 25px;
+       
+        h1.logo {
+            margin: -2px 0px 0 0;
+            a > img {
+                height: 192px;
+            }
+        }
+        .course-header{
+            font-size: 12pt;
+            color: $azul_organizacion_bs;
+            margin-top: 230px;
+            
+        }
+        ol.nav-global {
+            float: right;
+            padding-left: 20px;
+            padding-top: 40px;
+            @media screen and (max-width: 550px) {                
+                padding-left: 5px;
+                padding-top: 35px;
+            }
+
+            li > a {
+                background-color: $naranja_bs;
+                border-radius: 5px;
+                color: $blanco;
+                font-family: $myriad_regular;
+                font-size: 14px;
+                font-weight: normal;
+                padding: 5px 20px;
+                text-transform: capitalize;
+            }
+        }
+        ol.nav-courseware {
+            padding-top: 40px;
+        }
+    }
+
+    .user, .wrapper-user-menu {
+        padding-left: 20px;       
+        padding-top: 40px;
+        @media screen and (max-width: 550px) {                
+            padding-left: 5px;
+            padding-top: 35px;
+        }
+
+        .primary {
+            .user-link {
+                background: $azul_bs;
+                box-shadow: none;
+                font-size: 15px;
+            }
+        }
+        .user-image-frame, .menu-image {
+            height: auto;
+            padding-top: 10px;
+            width: auto;
+        }
+        .menu-title, .label-username {
+            color: $blanco;
+        }
+        .user-menu, .dropdown {
+            background: none;
+            color: $verde_bs;
+        }
+    }
+
+    .main-menu {
+        display: block;        
+        font-size: 14px;
+        height: 51px;
+        padding: 0 1%;
+        margin: 0 auto;
+        max-width: 1180px;
+        // padding-top: 100px;
+        ol {
+            background-color: $azul_bs;
+            float: right;
+            list-style: none;
+            padding: 7px;
+            text-transform: uppercase;
+            li{
+                display: inline;
+                padding: 0 10px;
+                a {
+                    color: $blanco;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    .course-naming {
+        color: $azul_organizacion_bs;
+        display: none;  
+        font-family: $myriad_regular;      
+        font-size: 13pt;
+        height: 30px;
+        margin: 0 auto;
+        max-width: 1180px;
+        p {
+            padding-left: 240px;
+            padding-top: 20px;
+            strong {
+                text-transform: uppercase;
+            }
+        }
+        h2 {
+            display: block;        
+            color: green;
+        }
+    }
+}
+
+.header-global.slim h1.logo img {
+    height: auto;
+}
+.header-global.slim {
+    background-color: $azul_bs;
+    border-bottom: none;
+    color: $blanco;
+    font-family: $myriad_bold;
+    font-size: 12pt;
+    height: 226px;
+}
