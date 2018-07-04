@@ -18,7 +18,7 @@ body {
             width: 100%;
 
             .wrapper-header-courses {
-                border-bottom: 2px solid $gris_linea_bs;
+                border-bottom: 1px solid $gris_linea_bs;
                 .header-courses {
                     color: $naranja_bs;
                     font-family: $myriad_regular;
@@ -141,11 +141,14 @@ section > .course-profile{
                 .heading-group {
                     padding: 0px;
                     img {
-                        width: 100%;
+                        width: 100% !important;
                     }
                 }
             }
         }
+    }
+    .highlighted-courses {
+        margin-bottom: 5px;
     }
 }
 
