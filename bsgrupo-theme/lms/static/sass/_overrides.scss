@@ -179,10 +179,12 @@ section > .course-profile{
                         background-image: none;
                         border: none;
                         box-shadow: none;
+                        color: white;
                         font-family: $myriad_regular;
                         font-size: 18pt;
                         font-weight: bold;
-                        padding: 10px 15px;
+                        padding: 0 15px;
+                        // padding: 10px 15px;
                         vertical-align: middle;
                         text-shadow: none;
                         text-transform: capitalize;
@@ -201,6 +203,7 @@ section > .course-profile{
                 }
                 .media {
                     vertical-align: middle;
+                    z-index: 1;
                     .hero {
                         border: none;
                     }
@@ -254,10 +257,13 @@ section > .course-profile{
             }
         }
         .course-sidebar {
-            header .social-sharing .share{
-                opacity: 1;
-                img {
-                    width: 30px;
+            header .social-sharing {
+                z-index: 1;
+                .share{
+                    opacity: 1;
+                    img {
+                        width: 30px;
+                    }
                 }
             }
         }
@@ -290,4 +296,51 @@ section > .course-profile{
     .msg{
         color: $celeste_letra_bs;
     }
+}
+
+//estilo pagos matricula
+#prueba {
+    height: 100px;
+}
+
+#ModalSeleccion { 
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: $myriad_regular !important;
+    font-size: 14px;
+    width: 100%;
+    h3 {
+        font-family: $myriad_regular !important;
+    }
+    input {
+        font-family: $myriad_regular !important;
+        font-size: inherit;
+        font-style: normal;
+    }
+}
+
+#ModalPago, #ModalMatricula {
+    width: 100%;
+}
+.modal-backdrop {
+    display: none;
+}
+
+.boton-pago {
+    background: $naranja_bs;
+    border-radius: 5px;
+    color: white;
+    display: block;
+    font-weight: bold;
+    margin: 0 auto;
+    max-width: 40%;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+#cuadroMensajes {
+    padding: 15px;
+}
+.border-warning {
+    border: 1px solid red !important;
 }

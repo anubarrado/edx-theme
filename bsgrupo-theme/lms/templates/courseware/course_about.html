@@ -14,6 +14,20 @@ from openedx.core.lib.courses import course_image_url
   ## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
   <meta property="og:title" content="${course.display_name_with_default_escaped}" />
   <meta property="og:description" content="${get_course_about_section(request, course, 'short_description')}" />
+
+  <!-- <link rel="stylesheet" href="${static.url('images/extra/popupwindow.css')}">
+  <script src="${static.url('images/extra/popupwindow.js')}"></script> -->
+
+  ##requerimientos visuales boton de pago
+  <link rel="stylesheet" href="${static.url('images/extra/bootstrap.min.css')}">
+  <link rel="stylesheet" href="${static.url('images/extra/bootstrap-theme.min.css')}">
+  <script src="${static.url('images/extra/bootstrap.min.js')}"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.js"></script>
+
+  ##pagos
+  <script src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
+  <script src="${static.url('images/extra/comprar.js')}"></script>
 </%block>
 
 <%block name="js_extra">
@@ -24,7 +38,12 @@ from openedx.core.lib.courses import course_image_url
   <script type="text/javascript">
   (function() {
     $(".register").click(function(event) {
-      $("#class_enroll_form").submit();
+      // $("#class_enroll_form").submit();
+      
+      //muestra el modal de pagos
+      if (!$('.register').hasClass('disabled')) {
+        mostrarModal();
+      }
       event.preventDefault();
     });
     % if can_add_course_to_cart:
@@ -113,6 +132,195 @@ from openedx.core.lib.courses import course_image_url
         </div>
 
         <div class="main-cta">
+
+            <!-- <a src="#" class="boton-pago" data-toggle="modal" data-target="#ModalSeleccion">
+                Matricularme
+            </a>
+             -->
+             <input type="hidden" id="curso_numero" value="${course.number}" />
+             <input type="hidden" id="curso_nombre" value="${course.display_name_with_default_escaped}" />
+
+             <div id="ModalMatricula">
+
+              <div class="modal fade" id="ModalSeleccion" tabindex="-1" role="dialog" aria-labelledby="ModalSeleccion">
+          
+                  <div class="modal-dialog cascading-modal" role="document">
+                      <div class="modal-content">
+                          <div class="modal-body">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          
+                              <div id="opciones-matricula" class="pop-up-display-content">
+                                  <h3 id="TextoInicial" class="text-center">Opciones de matr&iacute;cula</h3>
+                                  <ul>
+                                      <li id="Opcion1" style=""> Gratuita, con accesos a todos los contenidos: </li>
+                                  </ul>
+                                  <a type="button" class="boton-pago" id="botonMatriculaGratis">Matricularse</a>
+                                  <ul>
+                                      <li id="Opcion2" style="">
+                                          De pago, acceso a todos los contenido y a un certificado oficial de Microsoft firmado por Sayta
+                                          Naydella:
+                                      </li>
+                                  </ul>
+          
+                                  <a type="button" class="boton-pago" id="botonMatriculaPago">Certificado</a>
+          
+                                  <!-- Modal -->
+                                  <div id="ContenedorFormulario" class="row hidden">
+                                      <hr />
+                                      <form id="myCCForm" action="/orders/process" method="post" role="form" class="col-md-10 col-md-offset-1">
+          
+                                          <div class="row">
+                                              <div id="cuadroMensajes" class="hidden">
+                                                  @*<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>*@
+                                                  <p id="mensajeUsuario">
+          
+                                                  </p>
+                                              </div>
+                                          </div>
+          
+                                          <input id="token" name="token" type="hidden" value="">
+          
+                                          <div class="row">
+                                              <h3>Informaci&oacute;n de Contacto</h3>
+                                          </div>
+          
+                                          <div class="row">
+                                              <div class="col-lg-12">
+                                                  <div class="form-group">
+                                                      <!-- <label for="username">Nombre del titular de la tarjeta</label> -->
+                                                      <div class="input-group">
+                                                          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                                          <input id="card_holder_name" type="text" value="" autocomplete="off" placeholder="Nombres y Apellidos"
+                                                                 class="form-control" required
+                                                                 data-val-required="El campo de nombres es obligatorio." data-val="true" />
+          
+                                                          <!--
+                              <input name="NombreCentroCosto" class="form-control text-box single-line ui-autocomplete-input" id="NombreCentroCosto"
+                                     type="text" value="" data-val-required="El campo Centro Costo es obligatorio." data-val="true" autocomplete="off">
+                              <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="NombreCentroCosto"></span>
+                              -->
+          
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+          
+                                          <div class="row">
+                                              <div class="col-lg-12">
+                                                  <div class="form-group">
+                                                      <!-- <label for="username">Dirección de correo electrónico</label> -->
+                                                      <div class="input-group">
+                                                          <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                                          <input id="email" type="text" value="" autocomplete="off" placeholder="Correo Electrónico"
+                                                                 class="form-control" required
+                                                                 data-val-required="El campo Email es obligatorio." data-val="true" />
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+          
+                                          <div class="form-group">
+                                              <!-- <label for="phoneNumber">Telefono</label> -->
+                                              <div class="input-group col-md-6 col-sm-7">
+                                                  <span class="input-group-addon"><i class="fas fa-phone"></i></span>
+                                                  <input id="phone" autocomplete="off" class="form-control" maxlength="16" placeholder="Número de Celular" required value="" type="number">
+                                              </div>
+                                          </div>
+          
+          
+                                          <div class="row">
+                                              <h3>Informaci&oacute;n de Pago</h3>
+                                          </div>
+                                          <div class="form-group">
+                                              <!-- <label for="cardNumber">Número de Tarjeta</label> -->
+                                              <div class="input-group col-md-6  col-sm-7">
+                                                  <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                                  <input autocomplete="off" class="form-control" id="ccNo" maxlength="16" placeholder="Número de Tarjeta" required="required" value="" data-bv-field="ccNo" type="text">
+                                              </div>
+                                          </div>
+          
+                                          <div class="form-group">
+                                              <!-- <label for="cardNumber">Número de Tarjeta</label> -->
+                                              <div class="input-group col-md-6  col-sm-7">
+                                                  <span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>
+                                                  <select class="form-control" id="pais" required></select>
+                                              </div>
+                                          </div>
+          
+                                          
+                                          <div class="row">
+                                              <div class="col-sm-7">
+                                                  <div class="form-group">
+          
+                                                      <!-- <label><span class="hidden-xs">Fecha de Expiraci&oacute;n</span> </label> -->
+          
+                                                      <div class="form-inline">
+                                                          <div class="input-group">
+                                                              <span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>
+                                                              <select class="form-control" id="expMonth" required>
+                                                                  <option value="01" selected>01</option>
+                                                                  <option value="02">02</option>
+                                                                  <option value="03">03</option>
+                                                                  <option value="04">04</option>
+                                                                  <option value="05">05</option>
+                                                                  <option value="06">06</option>
+                                                                  <option value="07">07</option>
+                                                                  <option value="08">08</option>
+                                                                  <option value="09">09</option>
+                                                                  <option value="10">10</option>
+                                                                  <option value="11">11</option>
+                                                                  <option value="12">12</option>
+                                                              </select>
+                                                          </div>
+          
+                                                          <span style="text-align: center"> / </span>
+          
+                                                          <div class="input-group">
+                                                              <span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>
+                                                              <select class="form-control" id="expYear" required>
+                                                                  <option value="2018" selected>2018</option>
+                                                                  <option value="2019">2019</option>
+                                                                  <option value="2020">2020</option>
+                                                                  <option value="2021">2021</option>
+                                                                  <option value="2022">2022</option>
+                                                                  <option value="2023">2023</option>
+                                                                  <option value="2023">2023</option>
+                                                              </select>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="col-sm-4">
+                                                  <div class="form-group">
+          
+                                                      <!-- <label data-toggle="tooltip" title="" data-original-title="3 digits code on back side of the card">CVV <i class="fa fa-question-circle"></i></label> -->
+          
+                                                      <div class="input-group">
+                                                          <span class="input-group-addon"><i class="fas fa-credit-card"></i></span>
+                                                          <input id="cvv" type="text" maxlength="4" autocomplete="off" placeholder="CVV" class="form-control" required data-bv-field="cvv" />
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+          
+                                          <div class="form-group">
+                                              <div class="text-center">
+                                                  <a href="" class="boton-pago" id="botonPago">Pagar</a>
+                                              </div>
+                                          </div>
+          
+                                      </form>
+                                  </div>
+          
+                              </div>
+          
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              </div>
+
         %if user.is_authenticated() and registered:
           %if show_courseware_link:
             <a href="${course_target}">
