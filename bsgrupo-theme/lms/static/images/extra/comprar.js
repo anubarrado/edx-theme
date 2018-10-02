@@ -125,25 +125,27 @@ var cargar_modal_inicial = function () {
 
     $.getJSON(url_precio)
         .done(function (data) {
-            $('#TextoInicial').text(data.TextoInicial);
+            $('#TituloModal').text(data.TextoInicial);
+
+            $('#Opcion1Label').text(data.Opcion1);
+            $('#Opcion2Label').text(data.Opcion2);
+
             $('#botonMatriculaGratis').text(data.TextoBoton1);
-            $('#botonMatriculaPago').text(data.TextoBoton2);
-            $('#ColorBoton1').text(data.ColorBoton1);
-            $('#ColorBoton2').text(data.ColorBoton1);
+            $('#botonPago').text(data.TextoBoton2);
+
+            $('#TextoPrecio').text(data.Precio);
+            
+
+            //$('#ColorBoton1').text(data.ColorBoton1);
+            //$('#ColorBoton2').text(data.ColorBoton1);
+
             if (data.Opcion1 != null && data.Opcion1 != '') {
-                $('#Opcion1').css('display', 'inline-block');
-                $('#Opcion1').text(data.Opcion1);
-            }
-            else {
-                $('#Opcion1').css('display', 'none');
+                $('#Opcion1Label').text(data.Opcion1);
             }
             if (data.Opcion2 != null && data.Opcion2 != '') {
-                $('#Opcion2').css('display', 'inline-block');
-                $('#Opcion2').text(data.Opcion2);
+                $('#Opcion2Label').text(data.Opcion2);
             }
-            else {
-                $('#Opcion2').css('display', 'none');
-            }
+
             precio = data.Precio;
             console.log(data);
         });
@@ -207,6 +209,7 @@ var matricularAlumno = function () {
 
 var mostrarModal = function () {
     $("#ModalSeleccion").modal("show");
+    $('#ContenedorMatriculaGratis').removeClass('hidden');
     $('#ContenedorFormulario').addClass('hidden');
     limpiarFormulario();
     limpiarValidacionFormulario();
@@ -407,13 +410,16 @@ $(function () {
         //});
     });
 
-    $('#botonMatriculaPago').click(function (e) {
+    $('input[name="SeleccionMatricula"]').change(function (e) {
         e.preventDefault();
 
-        if ($('#ContenedorFormulario').hasClass('hidden')) {
-            $('#ContenedorFormulario').removeClass('hidden');
-        } else {
+        //valida si es gratis
+        if (this.value == 0) {
+            $('#ContenedorMatriculaGratis').removeClass('hidden');
             $('#ContenedorFormulario').addClass('hidden');
+        } else {
+            $('#ContenedorMatriculaGratis').addClass('hidden');
+            $('#ContenedorFormulario').removeClass('hidden');
             limpiarFormulario();
         }
     });

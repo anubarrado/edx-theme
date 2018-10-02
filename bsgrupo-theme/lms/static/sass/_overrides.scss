@@ -18,7 +18,7 @@ body {
             width: 100%;
 
             .wrapper-header-courses {
-                border-bottom: 1px solid $gris_linea_bs;
+                border: none;
                 .header-courses {
                     color: $naranja_bs;
                     font-family: $myriad_regular;
@@ -32,24 +32,58 @@ body {
                 font-size: 30px;
             }
 
-            .empty-dashboard-message > a {
-                background: $celeste_boton_bs;
-                border: 1px solid $celeste_boton_bs;
+            .empty-dashboard-message {
+                border: 1px solid $gris_borde;
                 border-radius: 5px;
-                padding: 10px 20px;
-                width: 45%;
-                img {
-                    height: 35px;
+                background: $gris_fondo;
+                font-size: 20px;
+                margin: 0 auto;
+                text-shadow: none;
+                width: 60%;
+                
+                a {
+                    background: $celeste_boton_bs;
+                    border: 1px solid $celeste_boton_bs;
+                    border-radius: 5px;
+                    font-family: $myriad_regular;
+                    font-size: 24px;
+                    font-weight: bold;
+                    padding: 10px 20px;
+                    width: 60%;
+
+                    img {
+                        height: 35px;
+                    }
                 }
             }
 
             .listing-courses {
-                .course-item .course-container .course .details {
-                    .wrapper-course-details .wrapper-course-actions .enter-course{
-                        float: right;
-                        background: $naranja_bs;
-                        border: 1px solid $naranja_bs;
-                        color: $blanco;
+                .course-item .course-container {
+                    background: $gris_fondo;
+                    border: 1px solid $gris_borde;
+                    .course {
+                        background: $gris_fondo;
+                        .details {
+                            .wrapper-course-image {
+                                .cover {
+                                    border: none;
+                                }
+                            }
+                            .wrapper-course-details {
+                                .course-title {
+                                    color: $azul_letra;
+                                    span {
+                                        font-family: $myriad_regular;
+                                    }
+                                }
+                                .wrapper-course-actions .enter-course{
+                                    float: right;
+                                    background: $naranja_fuerte;
+                                    border: 1px solid $naranja_fuerte;
+                                    color: $blanco;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -266,6 +300,9 @@ section > .course-profile{
                     }
                 }
             }
+            .important-dates li .important-dates-item-title {
+                font-family: $myriad_regular !important;
+            }
         }
     }
 }
@@ -280,23 +317,33 @@ section > .course-profile{
 .container.activation {
     .message {
         box-shadow: none;
-        h1.valid {
-            background: $naranja_bs;
-            border: 1px solid $naranja_bs;
+        background: $gris_fondo;
+        border: 1px solid $gris_borde;
+        h1, h1.valid {
+            background: $naranja_fuerte;
+            border: 1px solid $naranja_fuerte;
             border-radius: 10px;
             color: $blanco;
             font-family: $myriad_bold;
             margin: 0 auto;
             width: 80%;
         }
+        p {
+            font-family: $myriad_regular !important;
+            padding-top: 25px;
+            text-align: center;
+            a {
+                color: $celeste_enlace;
+            }
+        }
     }
 }
-.wrapper-msg.urgency-high {
-    background: $fondo_footer_bs;
-    .msg{
-        color: $celeste_letra_bs;
-    }
-}
+// .wrapper-msg.urgency-high {
+//     background: $fondo_footer_bs;
+//     .msg{
+//         color: $celeste_letra_bs;
+//     }
+// }
 
 //estilo pagos matricula
 #prueba {
@@ -305,16 +352,52 @@ section > .course-profile{
 
 #ModalSeleccion { 
     background-color: rgba(0, 0, 0, 0.5);
+    color: $letra_gris;
     font-family: $myriad_regular !important;
     font-size: 14px;
     width: 100%;
     h3 {
+        color: $letra_gris;
         font-family: $myriad_regular !important;
+        padding-left: 15px;
     }
     input {
         font-family: $myriad_regular !important;
         font-size: inherit;
         font-style: normal;
+    }
+    .modal-content {
+        border-radius: unset;
+        .modal-header {
+            background: $verde_fondo_pago;
+            border-bottom: 2px solid $gris_borde_pago;
+            text-align: center;
+            h4 {
+                font-family: $myriad_regular !important;
+                color: $blanco !important;
+                font-weight: bold;
+            }
+        }
+    }
+    hr {
+        background: $gris_borde_pago;
+        border: none;
+        height: 2px;
+        margin-left: 6%;
+        width: 88%;
+    }
+    #ContenedorFormulario {
+        #TextoPago {
+            color: $verde_texto_pago;
+            font-size: 25px;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        input, select {
+            border-radius: 0px !important;
+        }
     }
 }
 
@@ -343,4 +426,78 @@ section > .course-profile{
 }
 .border-warning {
     border: 1px solid red !important;
+}
+#Opciones {
+    min-height: 40px;
+    .radio {
+        text-align: center;
+        text-transform: uppercase;
+        label {
+            font-family: $myriad_regular !important;
+            font-size: 15px;
+            font-style: normal;
+        }
+    }
+}
+
+//login
+.login-register .section-title.lines .text {
+    background-color: $gris_fondo;
+    color: $naranja_fuerte;
+    font-weight: bold;
+}
+#login-form, #password-reset-form, #register-form, #password-reset-confirm-form {
+    #login, #password-reset, #register, #passwordreset-form {
+        background-color: $gris_fondo;
+        border: 1px $gris_borde solid;
+        padding: 30px;
+        .section-title.lines, .section-title.lines::after {
+            content: none !important;
+            h2 .text {
+                background-color: $gris_fondo !important;
+                color: $naranja_fuerte !important;
+                font-weight: bold !important;
+            }
+        }
+        button {
+            text-shadow: none;
+        }
+        button.forgot-password {
+            color: $celeste_enlace;
+        }
+        .supplemental-link>a {
+            color: $letra_celeste_bs;
+        }
+        button.login-button, button.js-reset, button.register-button {
+            background: $naranja_fuerte;
+            box-shadow: none;                
+            margin-left: 25%;
+            width: 50%;
+        }
+    }
+}
+
+//mensajes dashboard
+.dashboard-notifications {
+    .dashboard-banner {
+        .wrapper-msg, .wrapper-msg.urgency-high {
+            background: none;
+            .msg {
+                border: none;
+                padding: 0px;
+                .msg-content {
+                    background: $verde_mensaje_fondo;
+                    color: $letra_gris;
+                    border-bottom: 2px solid $verde_mensaje_borde;
+                    padding: 25px;
+                    .title {
+                        color: $verde_mensaje_borde;
+                    }
+                }
+            }
+        }
+        .urgency-high {
+
+        }
+    }
 }

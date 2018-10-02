@@ -146,32 +146,43 @@ from openedx.core.lib.courses import course_image_url
           
                   <div class="modal-dialog cascading-modal" role="document">
                       <div class="modal-content">
-                          <div class="modal-body">
+                          <div class="modal-header">
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          
+                              <h4 class="modal-title" id="TituloModal">Seleccione la modalidad de su matricula</h4>
+                          </div>
+                          <div class="modal-body">
                               <div id="opciones-matricula" class="pop-up-display-content">
-                                  <h3 id="TextoInicial" class="text-center">Opciones de matr&iacute;cula</h3>
-                                  <ul>
-                                      <li id="Opcion1" style=""> Gratuita, con accesos a todos los contenidos: </li>
-                                  </ul>
-                                  <a type="button" class="boton-pago" id="botonMatriculaGratis">Matricularse</a>
-                                  <ul>
-                                      <li id="Opcion2" style="">
-                                          De pago, acceso a todos los contenido y a un certificado oficial de Microsoft firmado por Sayta
-                                          Naydella:
-                                      </li>
-                                  </ul>
+                                  <div class="" id="Opciones">
+                                      <div class="col-sm-6">
+                                          <div class="radio">
+                                              <label><input type="radio" name="SeleccionMatricula" value="0" id="Opcion1" checked /> <span id="Opcion1Label">Gratis</span> </label>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                          <div class="radio">
+                                              <label><input type="radio" name="SeleccionMatricula" value="1" id="Opcion2" /> <span id="Opcion2Label">Acceso a Certificado</span></label>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                  <hr />
           
-                                  <a type="button" class="boton-pago" id="botonMatriculaPago">Certificado</a>
+                                  <div id="ContenedorMatriculaGratis" class="row">
+                                      
+                                      <a type="button" class="boton-pago" id="botonMatriculaGratis">Matricularme</a>
+                                  </div>
           
                                   <!-- Modal -->
                                   <div id="ContenedorFormulario" class="row hidden">
-                                      <hr />
+                                      
                                       <form id="myCCForm" action="/orders/process" method="post" role="form" class="col-md-10 col-md-offset-1">
+                                          <div class="" id="TextoPago">
+                                              Pagar <span id="TextoPrecio">99</span> USD
+                                          </div>
           
                                           <div class="row">
                                               <div id="cuadroMensajes" class="hidden">
-                                                  @*<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>*@
+                                                  <!-- <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
                                                   <p id="mensajeUsuario">
           
                                                   </p>
@@ -188,19 +199,9 @@ from openedx.core.lib.courses import course_image_url
                                               <div class="col-lg-12">
                                                   <div class="form-group">
                                                       <!-- <label for="username">Nombre del titular de la tarjeta</label> -->
-                                                      <div class="input-group">
-                                                          <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                                          <input id="card_holder_name" type="text" value="" autocomplete="off" placeholder="Nombres y Apellidos"
-                                                                 class="form-control" required
-                                                                 data-val-required="El campo de nombres es obligatorio." data-val="true" />
-          
-                                                          <!--
-                              <input name="NombreCentroCosto" class="form-control text-box single-line ui-autocomplete-input" id="NombreCentroCosto"
-                                     type="text" value="" data-val-required="El campo Centro Costo es obligatorio." data-val="true" autocomplete="off">
-                              <span class="field-validation-valid text-danger" data-valmsg-replace="true" data-valmsg-for="NombreCentroCosto"></span>
-                              -->
-          
-                                                      </div>
+                                                      <input id="card_holder_name" type="text" value="" autocomplete="off" placeholder="Nombres y Apellidos"
+                                                             class="form-control" required
+                                                             data-val-required="El campo de nombres es obligatorio." data-val="true" />
                                                   </div>
                                               </div>
                                           </div>
@@ -209,12 +210,9 @@ from openedx.core.lib.courses import course_image_url
                                               <div class="col-lg-12">
                                                   <div class="form-group">
                                                       <!-- <label for="username">Dirección de correo electrónico</label> -->
-                                                      <div class="input-group">
-                                                          <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                                          <input id="email" type="text" value="" autocomplete="off" placeholder="Correo Electrónico"
-                                                                 class="form-control" required
-                                                                 data-val-required="El campo Email es obligatorio." data-val="true" />
-                                                      </div>
+                                                      <input id="email" type="text" value="" autocomplete="off" placeholder="Correo Electrónico"
+                                                             class="form-control" required
+                                                             data-val-required="El campo Email es obligatorio." data-val="true"/>
                                                   </div>
                                               </div>
                                           </div>
@@ -222,7 +220,6 @@ from openedx.core.lib.courses import course_image_url
                                           <div class="form-group">
                                               <!-- <label for="phoneNumber">Telefono</label> -->
                                               <div class="input-group col-md-6 col-sm-7">
-                                                  <span class="input-group-addon"><i class="fas fa-phone"></i></span>
                                                   <input id="phone" autocomplete="off" class="form-control" maxlength="16" placeholder="Número de Celular" required value="" type="number">
                                               </div>
                                           </div>
@@ -231,32 +228,34 @@ from openedx.core.lib.courses import course_image_url
                                           <div class="row">
                                               <h3>Informaci&oacute;n de Pago</h3>
                                           </div>
-                                          <div class="form-group">
-                                              <!-- <label for="cardNumber">Número de Tarjeta</label> -->
-                                              <div class="input-group col-md-6  col-sm-7">
-                                                  <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-                                                  <input autocomplete="off" class="form-control" id="ccNo" maxlength="16" placeholder="Número de Tarjeta" required="required" value="" data-bv-field="ccNo" type="text">
-                                              </div>
-                                          </div>
-          
-                                          <div class="form-group">
-                                              <!-- <label for="cardNumber">Número de Tarjeta</label> -->
-                                              <div class="input-group col-md-6  col-sm-7">
-                                                  <span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>
-                                                  <select class="form-control" id="pais" required></select>
-                                              </div>
-                                          </div>
-          
                                           
+                                          <div class="row">
+                                              <div class="col-md-6 col-sm-7">
+                                                  <div class="form-group">
+                                                      <!-- <label for="cardNumber">Número de Tarjeta</label> -->
+          
+                                                      <input autocomplete="off" class="form-control" id="ccNo" maxlength="16" placeholder="Número de Tarjeta" required="required" value="" data-bv-field="ccNo" type="text">
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          
+                                          <div class="row">
+                                              <div class="col-md-6  col-sm-7">
+                                                  <div class="form-group">
+                                                      <!-- <label for="cardNumber">Número de Tarjeta</label> -->
+                                                      <select class="form-control" id="pais" required></select>
+                                                  </div>
+                                              </div>
+                                          </div>
+          
+          
                                           <div class="row">
                                               <div class="col-sm-7">
                                                   <div class="form-group">
-          
                                                       <!-- <label><span class="hidden-xs">Fecha de Expiraci&oacute;n</span> </label> -->
           
                                                       <div class="form-inline">
                                                           <div class="input-group">
-                                                              <span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>
                                                               <select class="form-control" id="expMonth" required>
                                                                   <option value="01" selected>01</option>
                                                                   <option value="02">02</option>
@@ -273,10 +272,9 @@ from openedx.core.lib.courses import course_image_url
                                                               </select>
                                                           </div>
           
-                                                          <span style="text-align: center"> / </span>
+                                                          <span style="text-align: center"> &nbsp; </span>
           
                                                           <div class="input-group">
-                                                              <span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>
                                                               <select class="form-control" id="expYear" required>
                                                                   <option value="2018" selected>2018</option>
                                                                   <option value="2019">2019</option>
@@ -296,8 +294,7 @@ from openedx.core.lib.courses import course_image_url
                                                       <!-- <label data-toggle="tooltip" title="" data-original-title="3 digits code on back side of the card">CVV <i class="fa fa-question-circle"></i></label> -->
           
                                                       <div class="input-group">
-                                                          <span class="input-group-addon"><i class="fas fa-credit-card"></i></span>
-                                                          <input id="cvv" type="text" maxlength="4" autocomplete="off" placeholder="CVV" class="form-control" required data-bv-field="cvv" />
+                                                          <input id="cvv" type="text" maxlength="4" autocomplete="off" placeholder="CVV" class="form-control" required data-bv-field="cvv"/>
                                                       </div>
                                                   </div>
                                               </div>
@@ -305,7 +302,7 @@ from openedx.core.lib.courses import course_image_url
           
                                           <div class="form-group">
                                               <div class="text-center">
-                                                  <a href="" class="boton-pago" id="botonPago">Pagar</a>
+                                                  <a href="" class="boton-pago" id="botonPago">Matricularme</a>
                                               </div>
                                           </div>
           

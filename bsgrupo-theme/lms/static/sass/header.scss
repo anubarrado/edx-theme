@@ -78,7 +78,10 @@
         }
         .user-menu, .dropdown {
             background: none;
-            color: $verde_bs;
+            color: $blanco;
+        }
+        .dropdown {
+            padding: 10px 0 0 5px;
         }
     }
 
