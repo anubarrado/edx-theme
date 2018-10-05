@@ -2,10 +2,19 @@
 @import 'fonts';
 @import 'header';
 @import 'footer';
+html {
+    height: 100%;
+}
 
 body {
     font-family: $myriad_regular;
     font-size: 15px;
+    height: 100%;
+}
+
+.window-wrap {
+    min-height: 89%;
+    position: relative;
 }
 
 .content-wrapper {

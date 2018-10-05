@@ -211,6 +211,11 @@ var mostrarModal = function () {
     $("#ModalSeleccion").modal("show");
     $('#ContenedorMatriculaGratis').removeClass('hidden');
     $('#ContenedorFormulario').addClass('hidden');
+
+    //clean radio button
+    $('[name="SeleccionMatricula"]').removeAttr('checked');
+    $("input[name=SeleccionMatricula][value=" + 0 + "]").prop('checked', true);
+
     limpiarFormulario();
     limpiarValidacionFormulario();
 };
