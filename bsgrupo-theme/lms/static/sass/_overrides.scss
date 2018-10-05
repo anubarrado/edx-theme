@@ -360,6 +360,14 @@ section > .course-profile{
         color: $letra_gris;
         font-family: $myriad_regular !important;
         padding-left: 15px;
+        font-style: normal;
+    }
+    label {
+        color: $letra_gris;
+        font-family: $myriad_regular !important;
+        font-size: 13px;
+        font-style: normal;
+        padding-left: 0px;
     }
     input {
         font-family: $myriad_regular !important;

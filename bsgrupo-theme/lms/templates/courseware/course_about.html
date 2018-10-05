@@ -212,7 +212,7 @@ from openedx.core.lib.courses import course_image_url
                                                       <!-- <label for="username">Dirección de correo electrónico</label> -->
                                                       <input id="email" type="text" value="" autocomplete="off" placeholder="Correo Electrónico"
                                                              class="form-control" required
-                                                             data-val-required="El campo Email es obligatorio." data-val="true"/>
+                                                             data-val-required="El campo Email es obligatorio." data-val="true" />
                                                   </div>
                                               </div>
                                           </div>
@@ -224,21 +224,6 @@ from openedx.core.lib.courses import course_image_url
                                               </div>
                                           </div>
           
-          
-                                          <div class="row">
-                                              <h3>Informaci&oacute;n de Pago</h3>
-                                          </div>
-                                          
-                                          <div class="row">
-                                              <div class="col-md-6 col-sm-7">
-                                                  <div class="form-group">
-                                                      <!-- <label for="cardNumber">Número de Tarjeta</label> -->
-          
-                                                      <input autocomplete="off" class="form-control" id="ccNo" maxlength="16" placeholder="Número de Tarjeta" required="required" value="" data-bv-field="ccNo" type="text">
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          
                                           <div class="row">
                                               <div class="col-md-6  col-sm-7">
                                                   <div class="form-group">
@@ -248,12 +233,23 @@ from openedx.core.lib.courses import course_image_url
                                               </div>
                                           </div>
           
+                                          <div class="row">
+                                              <h3>Informaci&oacute;n de Pago</h3>
+                                          </div>
+          
+                                          <div class="row">
+                                              <div class="col-md-6 col-sm-7">
+                                                  <div class="form-group">
+                                                      <!-- <label for="cardNumber">Número de Tarjeta</label> -->
+                                                      <input autocomplete="off" class="form-control" id="ccNo" maxlength="16" placeholder="Número de Tarjeta" required="required" value="" data-bv-field="ccNo" type="text">
+                                                  </div>
+                                              </div>
+                                          </div>
           
                                           <div class="row">
                                               <div class="col-sm-7">
                                                   <div class="form-group">
-                                                      <!-- <label><span class="hidden-xs">Fecha de Expiraci&oacute;n</span> </label> -->
-          
+                                                      <label><span class="hidden-xs">Fecha de Expiraci&oacute;n de la tarjeta</span> </label>
                                                       <div class="form-inline">
                                                           <div class="input-group">
                                                               <select class="form-control" id="expMonth" required>
@@ -289,10 +285,9 @@ from openedx.core.lib.courses import course_image_url
                                                   </div>
                                               </div>
                                               <div class="col-sm-4">
+                                                  <label>&nbsp;</label>
                                                   <div class="form-group">
-          
                                                       <!-- <label data-toggle="tooltip" title="" data-original-title="3 digits code on back side of the card">CVV <i class="fa fa-question-circle"></i></label> -->
-          
                                                       <div class="input-group">
                                                           <input id="cvv" type="text" maxlength="4" autocomplete="off" placeholder="CVV" class="form-control" required data-bv-field="cvv"/>
                                                       </div>
@@ -316,7 +311,7 @@ from openedx.core.lib.courses import course_image_url
                   </div>
               </div>
           
-              </div>
+          </div>
 
         %if user.is_authenticated() and registered:
           %if show_courseware_link:
