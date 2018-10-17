@@ -65,6 +65,7 @@
             .user-link {
                 background: $azul_bs;
                 box-shadow: none;
+                font-family: $myriad_regular;
                 font-size: 15px;
             }
         }
@@ -75,6 +76,8 @@
         }
         .menu-title, .label-username {
             color: $blanco;
+            font-family: $myriad_regular;
+            text-shadow: none;
         }
         .user-menu, .dropdown {
             background: none;

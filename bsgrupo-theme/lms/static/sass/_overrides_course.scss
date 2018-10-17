@@ -3,6 +3,11 @@
 @import 'header';
 @import 'footer';
 
+body {
+    font-family: $myriad_regular;
+    font-size: 15px;
+    height: 100%;
+}
 body.view-in-course{
     background: $blanco;
 }
@@ -10,5 +15,8 @@ body.view-in-course{
     margin-top: 60px;
 }
 .course-naming {
-    display: block !important;  
+    display: block !important;
+    p {
+        font-family: $myriad_regular;
+    }
 }   

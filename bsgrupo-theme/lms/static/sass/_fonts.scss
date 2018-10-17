@@ -19,4 +19,11 @@
   
   $sans-serif: $myriad_regular;
 
-  $body-font-family: $myriad_regular, $sans-serif !default;
+  $body-font-family: $myriad_regular, $sans-serif !important;
+
+///fuentes por defecto
+$f-serif: $myriad_regular, 'Bree Serif', Georgia, Cambria, 'Times New Roman', Times, serif !important;
+$f-sans-serif: $myriad_regular, 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif !important;
+$f-monospace: $myriad_regular, 'Bitstream Vera Sans Mono', Consolas, Courier, monospace !important;
+$monospace: Monaco, $myriad_regular, 'Bitstream Vera Sans Mono', 'Lucida Console', monospace !important;
+$serif: $myriad_regular, 'Georgia' !important;

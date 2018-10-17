@@ -2,6 +2,10 @@
 @import 'fonts';
 @import 'header';
 @import 'footer';
+
+$sans-serif: $myriad_regular;
+$body-font-family: $myriad_regular, $sans-serif !important;
+
 html {
     height: 100%;
 }
@@ -39,6 +43,9 @@ body {
             .course .details .course-title a {
                 font-family: $myriad_regular;
                 font-size: 30px;
+            }
+            .course-info [class*="info-"]{
+                font-family: $myriad_regular !important;
             }
 
             .empty-dashboard-message {
@@ -90,8 +97,15 @@ body {
                                     background: $naranja_fuerte;
                                     border: 1px solid $naranja_fuerte;
                                     color: $blanco;
+                                    font-family: $myriad_regular;
+                                }
+                                .actions-item {
+                                    font-family: $myriad_regular !important;
                                 }
                             }
+                        }
+                        .message, .message-copy {
+                            font-family: $myriad_regular !important;
                         }
                     }
                 }
@@ -119,6 +133,12 @@ section > .course-profile{
 .courses-container .courses .course {
     // border-bottom-color: #5e0000;
     border-bottom-color: $blanco_fondo_bs;
+    .course-info {
+        font-family: $myriad_regular;
+        h2 {
+            font-family: $myriad_regular !important;
+        }
+    }
 }
 
 .courses-container .courses .course .course-image .cover-image {
@@ -165,7 +185,8 @@ section > .course-profile{
 .passwordreset .form-actions button[type="submit"], 
 #forgot-password-modal #password-reset .form-actions button[type="submit"], 
 .view-survey .action-primary {
-    background-color: #193050
+    background-color: #193050;
+    font-family: $myriad_regular;
 }
 
 //styles img slyder
@@ -269,17 +290,29 @@ section > .course-profile{
             font-size: 15px;
             font-family: $myriad_regular;
             .inner-wrapper {
+                //clases genericas
+                h1, h2, h3, h4, h5, h5, span, p, div, ul, li, ol {
+                    font-family: $myriad_regular !important;
+                }
+                //
+
                 h2 {
                     color: $letra_celeste_bs;
-                    font-family: $myriad_bold;
+                    font-family: $myriad_bold !important;
                 }
-                .course-staff {
+                .prerequisites ul li {
+                    font-family: $myriad_regular;
+                }
+                .course-staff, .Meet.the.instructors {
+                    font-family: $myriad_regular;
                     .teacher {
                         border: 1px solid $fondo_footer_bs;
+                        font-family: $myriad_regular;
                         padding: 20px;
                         margin: 0;
                         h3 {
                             color: $naranja_bs;
+                            font-family: $myriad_regular;
                         }
                         .teacher-highlighted {
                             text-align: center;
@@ -288,6 +321,16 @@ section > .course-profile{
                             background: $letra_celeste_bs;
                             border-radius: 15px;
                             border: 1px solid $letra_celeste_bs;
+                            
+                            height: 115px;
+                            float: left;
+                            margin: 0 15px 0px 0;
+                            overflow: hidden;
+                            padding: 1px;
+                            width: 115px;
+                            img {
+                                border-radius: 12px;
+                            }
                         }
                         .teacher-position {
 
@@ -353,6 +396,13 @@ section > .course-profile{
 //         color: $celeste_letra_bs;
 //     }
 // }
+//modal video
+#modal_clone {
+    height: 335px !important;
+    .inner-wrapper {
+        padding: 0px !important;
+    }
+}
 
 //estilo pagos matricula
 #prueba {
@@ -428,7 +478,7 @@ section > .course-profile{
 .boton-pago {
     background: $naranja_bs;
     border-radius: 5px;
-    color: white;
+    color: white !important;
     display: block;
     font-weight: bold;
     margin: 0 auto;
@@ -462,6 +512,9 @@ section > .course-profile{
     background-color: $gris_fondo;
     color: $naranja_fuerte;
     font-weight: bold;
+}
+.login-register .form-field label, .financial-assistance-wrapper .financial-assistance-form .form-field label, .login-register .form-field input, .financial-assistance-wrapper .financial-assistance-form .form-field input, .login-register .form-field textarea, .financial-assistance-wrapper .financial-assistance-form .form-field textarea, .login-register .form-field .tip, .login-register .form-field .field-link, button, .button, span, .login-register h2, select, input, textarea, .login-register .note, .login-register .action-label, .login-register .status .message-title, .login-register .status .message-copy {
+    font-family: $myriad_regular;
 }
 #login-form, #password-reset-form, #register-form, #password-reset-confirm-form {
     #login, #password-reset, #register, #passwordreset-form {
@@ -502,6 +555,7 @@ section > .course-profile{
             .msg {
                 border: none;
                 padding: 0px;
+                font-family: $myriad_regular;
                 .msg-content {
                     background: $verde_mensaje_fondo;
                     color: $letra_gris;
@@ -509,6 +563,10 @@ section > .course-profile{
                     padding: 25px;
                     .title {
                         color: $verde_mensaje_borde;
+                        font-family: $myriad_regular;
+                    }
+                    .copy, .copy p {
+                        font-family: $myriad_regular;
                     }
                 }
             }
