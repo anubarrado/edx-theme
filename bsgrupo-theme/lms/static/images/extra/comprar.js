@@ -175,8 +175,8 @@ var limpiarFormulario = function () {
     $('#ccNo').val("");
     $('#cvv').val("");
 
-    //$('#expMonth').val("");
-    //$('#expYear').val("");
+    $('#expMonth').val("");
+    $('#expYear').val("");
 
     limpiarMensajeUsuario();
 };
@@ -232,7 +232,7 @@ var limpiarValidacionFormulario = function () {
 };
 
 var validarFormulario = function () {
-    console.log("inici validacion");
+    console.log("inicio validacion");
     var validacion = true;
     limpiarMensajeUsuario();
     limpiarValidacionFormulario();

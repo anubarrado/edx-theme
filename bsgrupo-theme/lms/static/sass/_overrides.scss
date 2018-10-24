@@ -460,10 +460,13 @@ section > .course-profile{
             font-weight: bold;
             padding: 10px;
             text-align: center;
-            text-transform: uppercase;
+            // text-transform: uppercase;
         }
         input, select {
             border-radius: 0px !important;
+        }
+        img {
+            padding-left: 5px;
         }
     }
 }
