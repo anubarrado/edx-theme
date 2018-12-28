@@ -1,3 +1,10 @@
 .home>header {}
 
 .home>header .outer-wrapper {}
+
+.wrapper-footer footer .site-nav {
+    display: none;
+}
+.wrapper-footer footer .legal-nav {
+    display: none;
+}
