@@ -121,6 +121,13 @@ from pipeline_mako import render_require_js_path_overrides
     </script>
 % endif
 
+##Pixel Google
+<!-- Global site tag (gtag.js) - Google Ads: 823909506 --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-823909506"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-823909506'); </script>
+
+<!-- Event snippet for Open_EDX conversion page In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. --> 
+<script> function gtag_report_conversion(url) { var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } }; gtag('event', 'conversion', { 'send_to': 'AW-823909506/Svz1CMCO1ZIBEIK574gD', 'event_callback': callback }); return false; } </script>
+
 </head>
 
 <body class="${static.dir_rtl()} <%block name='bodyclass'/> lang_${LANGUAGE_CODE}">
