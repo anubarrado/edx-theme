@@ -135,6 +135,10 @@ section > .course-profile{
     border-bottom-color: $blanco_fondo_bs;
     .course-info {
         font-family: $myriad_regular;
+        height: auto;
+        .course-title {
+            margin: 5px 0 0px 0;
+        }
         h2 {
             font-family: $myriad_regular !important;
         }
