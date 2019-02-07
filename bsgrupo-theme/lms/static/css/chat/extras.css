@@ -1,0 +1,24 @@
+.us_floating .us_floating_outer_wrapper {
+    z-index: 10000;
+    display: none;
+}
+
+.us_wrapper {
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    text-shadow: none;
+    clear: both;
+    line-height: 0;
+    cursor: auto;
+    max-width: 100%;
+}
+
+.us_tac {
+    text-align: center !important;
+}
+
+.us_floating .us_wrapper .us_button {
+    margin: 0;
+}
