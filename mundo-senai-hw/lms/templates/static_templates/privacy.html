@@ -1,0 +1,46 @@
+<%page expression_filter="h"/>
+<%! from django.utils.translation import ugettext as _ %>
+
+<%inherit file="../main.html" />
+
+<%block name="pagetitle">${_("Privacy Policy")}</%block>
+
+<main id="main" aria-label="Content" tabindex="-1">
+    <section class="container about">
+        <h1>
+            <%block name="pageheader">${page_header or _("Privacy Policy")}</%block>
+        </h1>
+        
+        <div id="privacy-policy-content">
+            <ol>
+                <li>
+                    O SENAI sabe o quanto é importante para você conhecer e estar seguro sobre a utilização dos seus dados pessoais aqui no site. Por isso, nos preocupamos em esclarecer e divulgar nossa política de utilização dessas informações. Assim, você poderá entender melhor quais informações obtemos e como as utilizamos.
+                </li>
+                <li>
+                    Para solicitar mais informações, compartilhar conteúdo e personalizar a sua navegação no Portal Mundo SENAI, você precisa informar alguns dados pessoais. Essas informações não são reveladas, nem repassadas a terceiros, salvo por determinação judicial, e servem somente para que possamos aperfeiçoar o relacionamento em suas futuras visitas.
+                </li>
+                <li>
+                    Os dados fornecidos poderão ser utilizados pelo SENAI em ferramentas computacionais de terceiros, única e exclusivamente para cruzamento dos dados, de maneira a oferecer informações mais adequadas sobre cursos e informações mais aderentes ao perfil do USUÁRIO, sendo vedados a esses terceiros a divulgação dessas informações.
+                </li>
+                <li>
+                    O SENAI se compromete a adotar e manter as melhores técnicas de segurança para proteção contra acesso, perda ou alteração indevidos dos dados e da privacidade do USUÁRIO, e do portal MUNDO SENAI como um todo, visando atender os deveres previstos na legislação pertinente, ficando isenta de responsabilidades por falhas no sistema na hipótese de caso fortuito ou força maior e pela quebra de sigilo das informações pessoais advindas exclusivamente do uso e guarda inadequados da senha pelo USUÁRIO, bem como de sua ação ou omissão exclusiva.
+                </li>
+                <li>
+                    Os formulários do Mundo SENAI são protegidos por mecanismos de criptografia e tecnologia que garantem a segurança na transmissão e manutenção dos dados em nossos computadores. Os códigos gerados só podem ser identificados pelo SENAI e é essa exclusividade que assegura a privacidade dos dados informados.
+                </li>
+                <li>
+                    Ao fornecer informações pessoais aqui no site, como parte do cadastramento para melhorar sua experiência de navegação, você permite que o SENAI o contate posteriormente por meio de todos os canais de comunicação disponíveis, incluindo correio eletrônico (e-mail), Celular, SMS, entre outros.
+                </li>
+                <li>
+                    As informações coletadas mediante o uso de cookies (pequenos textos que os sites podem enviar aos navegadores) e a identificação de endereços IP são genéricas e usadas em conjunto para fins estatísticos e para a melhoria do relacionamento com nossos usuários. Caso deseje, você pode configurar seu browser de navegação na internet para rejeitar a coleta automática dessas informações.
+                </li>
+                <li>
+                    No Site do Mundo SENAI, mantemos links com outros sites e hotsites, pertencentes ao Sistema Indústria e a parceiros, porque acreditamos que possam auxiliar você a obter mais informações ou contratar um serviço junto à Federação do seu estado, por exemplo. Entretanto, esta Política de Privacidade restringe-se ao Portal Mundo SENAI. Assim, não nos responsabilizamos pelos serviços, procedimentos e políticas específicas de sites para os quais temos link e/ou que tenham link para o nosso, mesmo que façam parte do Sistema Indústria (SESI, CNI, Federações das Indústrias e IEL).
+                </li>
+                <li>
+                    Para assegurar regras claras e precisas, o SENAI pode alterar essa política de tempos em tempos, comunicando seus USUÁRIOS acerca da mudança. Mesmo assim, recomendamos sua leitura periodicamente.
+                </li>
+            </ol>
+        </div>
+    </section>
+</main>
