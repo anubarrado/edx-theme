@@ -11,6 +11,22 @@
     display: none;
 }
 
+@media screen and (max-width: 767px) {
+    .global-header .header-logo a {
+        //margin: 5px 0 10px 50%;
+        .logo {
+            height: 40px !important;
+        }
+    }
+}
+@media screen and (max-width: 991px) {
+    .global-header .header-logo a {
+        //margin-top: 5px;
+        .logo {
+            height: 40px !important;
+        }
+    }
+}
 .global-header .header-logo a .logo {
     height: 75px;
 }
@@ -20,6 +36,9 @@
     text-align: center;
     > .heading-group h1 {
         text-align: center;
+    }
+    .index-overlay {
+        font-size: 12px;
     }
 }
 
