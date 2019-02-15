@@ -188,7 +188,7 @@
     .intl-tel-input.separate-dial-code .selected-dial-code {
         display: table-cell;
         vertical-align: middle;
-        padding-left: 25px;
+        padding-left: 15px;
         height: 30px;
     }
 }

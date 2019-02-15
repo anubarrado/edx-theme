@@ -55,7 +55,10 @@ var LCSKChat = (function () {
     var correo = '';
     var celular = '';
     //280618
-    var cookiecontaco = '00000000-0000-0000-0000-000000000000';
+    var cookiecontaco = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+				var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+				return v.toString(16);
+			});
     //chat paises pruebas 040718
     
     //fin chat paises pruebas 040718
@@ -106,7 +109,7 @@ var LCSKChat = (function () {
         options.emailSent = '<p style ="margin:30px;text-align:center;font-size:11px;color:#AAA;word-wrap: break-word;line-height: 1.42857143">' + options.offlinetextosatisfaccion + '</p>';
         options.emailFailed = 'Ohh. Tu correo no pudo ser enviado.<br /><br />Lo sentimos.';
 
-        cookiecontaco = "00000000-0000-0000-0000-000000000000";
+        //cookiecontaco = "00000000-0000-0000-0000-000000000000";
     }
 
     function _config(args) {
@@ -132,10 +135,10 @@ var LCSKChat = (function () {
         if (primervisualizar == true) {
 
             primervisualizar = false;
-            $("#chat-box-headermobile").css('height', '6%');
+            $("#chat-box-headermobile").css('height', '5.5%');
             $("#chat-box-headermobile").css('font-weight', 'normal');
-            $("#chat-box-headermobile").css('font-size', '13px');
-            $("#chat-box-headermobile").css('line-height', '1.3');
+            $("#chat-box-headermobile").css('font-size', '16px');
+            $("#chat-box-headermobile").css('line-height', '1.0');
 
 
             $('#chat-box-headermobile').html(options.headertextonotificacion);
@@ -180,6 +183,86 @@ var LCSKChat = (function () {
         }
 
         if (dispositivomovil) {
+			$('body').append(
+
+                '<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"  style="width:100%;background:rgba(0,0,0,.5);">' +
+                '<div class="modal-dialog" role="document" style="width:90.5%">' +
+                '<div class="modal-content">' +
+                '<div class="modal-header" style="font-size:12px; font-weight:bold;color: ' + options.headertextocolor + ';background: ' + options.headerGradientEnd + ';padding: 7px;border-top-left-radius: 5px;border-top-right-radius: 5px;">' +
+                '<div id="chat-box-headermobileheader" style="' + options.headerFont + ';" >' +
+                '<div>' +
+                '<button type="button" id="botonminimizarheadermovil" class="close" data-dismiss="modal" aria-label="Close">' +
+                '<span style="line-height: 0.5;color: white;" aria-hidden="true"></span>' +
+                '</button>' +
+                '<h5 class="modal-title"  id="exampleModalLabel" style="text-align:center;" >' + options.textoheader +
+                '</h5>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="modal-body" style="padding:0px 0px 0px 0px;">' +
+                '<div id="chat-box">' +
+                '<div id="formulario">' +
+
+                '<div class="form-group" style="text-align:center;">' +
+                '<p class="parrafo-titulo" style="margin:0 0 10px;' + options.textoFormularioFont + ';"></p><input type="text" id="chat-box-email" value="' + correo + '" style="height:30px;padding:0px 5px; width:93%;font:unset;display:unset;' + options.textoFormularioFont + ';" class="form-control" placeholder="Email" />' +
+                '<span id="dangeremail" style="float: left; font-size:10px; padding-top:5px; color:red; font-style: italic; display:none">E-mail invalido</span>' +
+                '</div>' +
+                '<div class="form-group" style="text-align:center;">' +
+                '<p class="parrafo-titulo" style="margin:0 0 10px;' + options.textoFormularioFont + ';"></p><input type="text" id="chat-box-nombres" value="' + nombres + '" style="height:30px; padding:0px 5px; width:93%;font:unset;display:unset;' + options.textoFormularioFont + ';" class="form-control" placeholder="Nombres" />' +
+                '</div>' +
+                '<div class="form-group" style="margin-bottom: 25px;text-align:center;">' +
+                '<p class="parrafo-titulo" style="margin:0 0 10px;' + options.textoFormularioFont + ';"></p><input type="text" id="chat-box-apellidos" value="' + apellidos + '" style="height:30px; padding:0px 5px; width:93%;font:unset;display:unset;' + options.textoFormularioFont + ';" class="form-control" placeholder="Apellidos" />' +
+                '</div>' +
+                '<div class="form-group" style="margin-bottom: 20px;text-align:center;">' +
+                '<input class="form-control" id="phonechat"value="' + celular + '" type="tel" placeholder="Número de Teléfono Móvil" style="height:30px; width:93%;font:unset;display:unset;">' +
+                '<span id="dangertelefono" style="float: left; font-size:10px; padding-top:5px; color:red; font-style: italic; display:none; ">Telefono invalido</span>' +
+                '</div>' +
+                '<div style="text-align:center;"><input type="button" id="chat-box-recargar" value="[No soy yo]" style="height:30px;' + options.textoFormularioFont + ';" class="btn btn-link"/></div>' +
+                '<input type="text" class="hidden" id="chat-box-estadoasesor" value="' + estadotemp + '"/>' +
+                '<p style ="margin:15px;"><input type="button" style="font-weight:unset;height:34px;letter-spacing: 0;text-transform: none;box-shadow: inset 0 0 0 0;text-shadow: 0 0px 0px;font-size: 14px;width: 100%;background: ' + options.colorFondoempezarchat + ';color:' + options.colorTextoempezarchat + ';border-color:' + options.colorFondoempezarchat + ';' + options.textoFormularioFont + ';" class="btn btn-warning btn-block"  id="chat-box-crear" value="Empezar a chatear ahora"/>' +
+                '</div>' +
+                '<div id="mensajes">' +
+                '<div id="chat-box-info" style="height:40px;overflow:hidden;line-height:1;text-align:left;border-bottom-style:solid;border-bottom-width:1px;border-bottom-color:#c5c1c1;background:whitesmoke;">' +
+                '<img src="https://bsginstitute.com/img-web/chat/bsginstitute.png" class="pruebasMovil">' +
+                '<div id="cabeceranombreasesor" style="padding-top:3px;margin-left: 25%;font-weight:bold;' + options.textochatFont + ';font-size: 12px;"><b>' + nombreasesorglobal + '</b></div>' +
+                '<div id="cabeceracorreoasesor" style="margin-left:25%;padding-top:3px;' + options.textochatFont + ';font-size: 12px;">' + correoasesorglobal + '</div>' +
+                '</div>' +
+                '<div id="chat-box-msg" style="height:260px;overflow:hidden;line-height:1;text-align:left; overflow-y:scroll;width:98%;">' +
+                '</div>' +
+                '<div id="chat-box-input" style="height:40px; margin-top: 30px;background:whitesmoke;text-align:center;border-bottom-left-radius:5px;border-bottom-right-radius:5px;"><input id="chat-box-textinput" style="width:93%;margin-top:5px;background:white;" class="mytext" placeholder="Escribe tu mensaje aquí " /></div>' +
+                '</div>' +
+                '<div id="desconectado" style="text-align:center;">' +
+                '<p class="parrafo-titulo" style="margin:0 0 10px;' + options.textoFormularioFont + ';">E-mail</p><input type="text" class="form-control" style="' + options.textoFormularioFont + '; width:93%;font:unset;background: #eee;" id="chat-box-emailoffline" value="' + correo + '" readonly />' +
+                '<p style ="margin:15px;' + options.textoFormularioFont + ';">Tu Mensaje</p><div style="padding:10px;"><textarea placeholder="Por ahora no nos encontramos en línea, por favor deja tu mensaje indicando tu número telefónico, para poder comunicarnos contigo a la brevedad." id="chat-box-cmt" cols="25" rows="7" class="form-control" style="font:unset;width:100%;height:auto;padding: 6px 6px;border-radius: 3px;' + options.textoFormularioFont + ';font-size:small;line-height:normal;"></textarea></div>' +
+                '<p style ="margin:10px;"><button type="button" id="chat-box-send" style="background: ' + options.colorFondoempezarchat + ';color: ' + options.colorTextoempezarchat + ';border-color:' + options.colorFondoempezarchat + ';' + options.textoFormularioFont + ';" class="btn btn-warning btn-block"><span class="glyphicon glyphicon-envelope">   Enviar</span></button></p>' +
+                '</div>' +
+                '<div id="gracias">' +
+                '<p style ="margin:30px;text-align:center;font-size:11px;color:#AAA;word-wrap: break-word;">' + options.offlinetextosatisfaccion + '</p>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                //fin nuevo modal
+
+                '<div class="us_floating us_mobile_hide">' +
+                '<div class="us_floating_outer_wrapper" style="display: block;position: fixed;top: 226px;">' +
+                '<div class="us_wrapper us_share_buttons us_tac us_skin_default">' +
+                '<div id="chat-box-headermobile" class="chatboxheaderclassmobile" style="' + options.headerFont + ';filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'' + options.headerGradientStart + '\', endColorstr=\'' + options.headerGradientEnd + '\');background: -webkit-gradient(linear, left top, left bottom, from(' + options.headerGradientStart + '), to(' + options.headerGradientEnd + '));background: -moz-linear-gradient(top,  ' + options.headerGradientStart + ',  ' + options.headerGradientEnd + ');" ><span class="glyphicon glyphicon-comment" style="line-height: 0.5;" aria-hidden="true"></span><span style="line-height:0.5;"><strong>' + options.textoheader + '</strong></span></div > ' +
+                '</div>' +
+                '</div>' +
+                '</div>'
+            );
+
+
+            $('#chat-box-headermobile').hide();
+            $('#chat-box-input').hide();
+            $('#chat-box-msg').hide();
+            $('#formulario').show();
+            $('#mensajes').hide();
+            $('#gracias').hide();
+            $('#desconectado').hide();
             
         }
         else {
@@ -190,7 +273,7 @@ var LCSKChat = (function () {
                 '<div id="chat-box-header" class="chatboxheaderclass" style="box-sizing: border-box;-moz-box-sizing: border-box;' + options.headerFont + ';color:' + options.headertextocolor + '; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'' + options.headerGradientStart + '\', endColorstr=\'' + options.headerGradientEnd + '\');background: -webkit-gradient(linear, left top, left bottom, from(' + options.headerGradientStart + '), to(' + options.headerGradientEnd + '));background: -moz-linear-gradient(top,  ' + options.headerGradientStart + ',  ' + options.headerGradientEnd + ');" > ' +
                 '<div>' +
                 '<button id="botonminimizarheaderpc" style="display:none;float:right;padding:1px 6px;font-size:21px;line-height:1;opacity:0.2;margin-top:8px;" type="button" class="close" >' +
-                '<span class="glyphicon glyphicon-minus" style="line-height: 0.5;color: white;" aria-hidden="true"></span>' +
+                '<span style="line-height: 0.5;color: white;" aria-hidden="true"></span>' +
                 '</button>' +
                 '<div id="notificacionshow">' +
                 '<h5 class="modal-title"  id="textoheaderpc" style="color: white;text-align:center;width:90%;font-family:Arial,Helvetica,sans-serif;">' + options.textoheader +
@@ -201,7 +284,7 @@ var LCSKChat = (function () {
                 '</div>' +
                 '</div>' +
                 '</div > ' +
-                '<div id="chat-box" class="chatboxclass"></div>' +
+                '<div id="chat-box" class="chatboxclass" style="box-sizing:unset"></div>' +
                 '</div>' +
                 '</div>' +
                 '</div>'
@@ -313,7 +396,7 @@ var LCSKChat = (function () {
                 var charCode = (e.which) ? e.which : e.keyCode
                 return !(charCode > 31 && (charCode < 48 || charCode > 57));
             }
-        }, '#phone');
+        }, '#phonechat');
         //VALIDA SOLO LETRAS
         $('#chat-box').on({
 
@@ -357,7 +440,7 @@ var LCSKChat = (function () {
                     longitudglobalcelular = placeholder.length;
 
 
-                    if ($('#phone').val().length <= 0 || $('#phone').val().length != longitudglobalcelular)//valido el numero con longitud
+                    if ($('#phonechat').val().length <= 0 || $('#phonechat').val().length != longitudglobalcelular)//valido el numero con longitud
                     {
                         $('#dangertelefono').css("display", "block");
                     }
@@ -369,10 +452,10 @@ var LCSKChat = (function () {
                         var idpaisvalidar = thiscarlos.selectedCountryData.dialCode;
 
                         if (idpaisvalidar == 51) {
-                            CelularAlmacenado = $('#phone').val();
+                            CelularAlmacenado = $('#phonechat').val();
                         }
                         else {
-                            CelularAlmacenado = '00' + idpaisvalidar.toString() + $('#phone').val();
+                            CelularAlmacenado = '00' + idpaisvalidar.toString() + $('#phonechat').val();
                         }
 
                         //LLama al signal y crea la oportunidad
@@ -495,6 +578,7 @@ var LCSKChat = (function () {
             $('#chat-box').removeClass('chat-open');
 
             //lo aparecemos
+			$("#chat-box-headermobile").css('line-height', '1.5');
             $('#chat-box-headermobile').css('display', 'block');
             //desaparecemos el gion de mobile
             //$('#botonminimizarheadermovil').css('display', 'none');
@@ -517,10 +601,10 @@ var LCSKChat = (function () {
                 }
                 else {
 
-                    $("#chat-box-headermobile").css('height', '6%');
+                    $("#chat-box-headermobile").css('height', '5.5%');
                     $("#chat-box-headermobile").css('font-weight', 'bold');
                     $("#chat-box-headermobile").css('font-size', '15px');
-                    $("#chat-box-headermobile").css('line-height', '1');
+                    $("#chat-box-headermobile").css('line-height', '1.5');
                     primerveztoggle = false;
 
                     $('#chat-box-headermobile').html(options.textoheader);
@@ -764,7 +848,141 @@ var LCSKChat = (function () {
         primerchatconfiguracion = false;
         if (dispositivomovil)//es movil
         {
-            
+            estadotemp = (state == true) ? '1' : '0';
+            $('#chat-box-estadoasesor').val(estadotemp);
+
+            if (estadologueo == 1)//si ya esta logueado
+            {
+                if (state) {
+                    horafin = Date.now();
+                    $('#desconectado').hide();
+                    $('#formulario').hide();
+                    $('#gracias').hide();
+
+                    if ($("#chat-box-headermobile").css('font-size') == '25px')//se mostro la notificacion pero todvia no se ha ocultado la notificaion 
+                    {
+                        // no puedo cambiar el texto
+                    }
+                    else {
+                        $('#chat-box-headermobile').text('Asesor en línea');
+                    }
+
+                    $('#exampleModalLabel').text('Asesor en línea');
+                    $('#cabeceranombreasesor').text(nombreasesorglobal);//carga el nombre en la cabecera
+                    $('#cabeceracorreoasesor').text(correoasesorglobal);//carga el correo en la cabecera
+                    $('#mensajes').show();
+                    $('#chat-box-msg').show();
+                    $('#chat-box-input').show();
+                    if (primerchat) {//!requestChat
+                        primerchat = false;
+                        var date = formatAMPM(new Date());
+                        //$('#mensajes').show();
+
+                        $('#chat-box-msg').append('<p style ="margin:30px;text-align:center;font-size:11px;color:#AAA;">Chat iniciado</p><p style ="margin:30px;text-align:center;font-size:11px;color:#AAA;"> ' + nombreasesorglobal + ' se unió al Chat</p>');
+                        $("#chat-box-msg").scrollTop(($("#chat-box-msg")[0].scrollHeight));
+
+                        if (options.visualizartextoinicial == 1) {
+                            //agrego el primer mensaje por defecto
+                            $('#chat-box-msg').append('<div class="msj macro" style="color:' + options.colorTextoasesor + ';">' +
+                                '<div class="avatar" style="padding:15px 15px 15px 0px;"><img class="rounded" style="width:100%;border-radius: 5px;" src="https://bsginstitute.com/img-web/chat/bsginstitute.png" /></div>' +
+                                '<div class="text text-l" style="background:' + options.colorFondoasesor + ';" >' +
+                                '<p style="text-align: left;color: ' + options.colorTextoasesor + ';font-size: 12px;' + options.textochatFont + '"><b>' + nombreasesorglobal + '</b><br/>' + options.textoInicial + '</p>' +
+                                //'<p><small>' + date + '</small></p>' +
+                                '</div>' +
+                                '</div>');
+                            //fin agrego el primer mensaje
+                        }
+
+                    }
+                    else {
+                        $('#formulario').hide();
+                        $('#gracias').hide();
+                        $('#mensajes').show();
+
+                        $('#chat-box-msg').append('<p style ="margin:30px;text-align:center;font-size:11px;color:#AAA;">Conectado</p><p style ="margin:30px;text-align:center;font-size:11px;color:#AAA;"> ' + nombreasesorglobal + ' se unió al Chat nuevamente</p>');
+                        $("#chat-box-msg").scrollTop(($("#chat-box-msg")[0].scrollHeight));
+                    }
+
+
+
+                } else {
+                    horafin = Date.now();
+                    $('#exampleModalLabel').html(options.offlinetextoheader);
+
+                    if ($("#chat-box-headermobile").css('font-size') == '25px')//se mostro la notificacion pero todvia no se ha ocultado la notificaion 
+                    {
+                        // no puedo cambiar el texto
+                    }
+                    else {
+                        $('#chat-box-headermobile').html(options.offlinetextoheader);
+                    }
+                    $('#chat-box-input').hide();
+                    $('#chat-box-msg').hide();
+                    $('#formulario').hide();
+                    $('#mensajes').hide();
+                    $('#gracias').hide();
+                    $('#desconectado').show();
+                    $('#chat-box-emailoffline').val(correo);
+                }
+            }
+            else {
+                var estado = (state == true) ? '1' : '0';
+                if (estadologueo == 2)//precargar datos
+                {
+                    $('#chat-box-recargar').show();
+                    $('#exampleModalLabel').html(options.textoheader);
+                    if ($("#chat-box-headermobile").css('font-size') == '25px')//se mostro la notificacion pero todvia no se ha ocultado la notificaion 
+                    {
+                        // no puedo cambiar el texto
+                    }
+                    else {
+                        $('#chat-box-headermobile').html(options.textoheader);
+                    }
+                    $('#chat-box-input').hide();
+                    $('#desconectado').hide();
+                    $('#chat-box-msg').hide();
+                    $('#gracias').hide();
+                    $('#formulario').show();
+
+                    //fin se carga ciudad del contacto
+                    $("#phonechat").intlTelInput({
+                        onlyCountries: ['ar', 'bo', 'br', 'cl', 'co', 'cr', 'cu', 'ec', 'sv', 'gt', 'hn', 'mx', 'ni', 'pa', 'py', 'pe', 'do', 'uy', 've'],
+                        placeholderNumberType: "MOBILE",
+                        separateDialCode: true,
+                        utilsScript: "https://bsginstitute.com/Content/Script/utils.js"
+                    });
+                }
+                else// es nuevo
+                {
+                    $('#chat-box-recargar').hide();
+                    $('#exampleModalLabel').html(options.textoheader);
+                    $('#chat-box-headermobile').html(options.textoheader);
+                    $('#chat-box-input').hide();
+                    //limpiamos loa campos
+                    $('#chat-box-email').val('');
+                    $('#chat-box-nombres').val('');
+                    $('#chat-box-apellidos').val('');
+                    $('#phonechat').val('');
+
+                    $('#telefonoMovilNumchat').val('');
+                    $('#chat-box-celular').val('');
+
+                    $('#desconectado').hide();
+                    $('#gracias').hide();
+                    $('#chat-box-msg').hide();
+                    $('#formulario').show();
+
+                    
+                    $("#phonechat").intlTelInput({
+                        onlyCountries: ['ar', 'bo', 'br', 'cl', 'co', 'cr', 'cu', 'ec', 'sv', 'gt', 'hn', 'mx', 'ni', 'pa', 'py', 'pe', 'do', 'uy', 've'],
+                        placeholderNumberType: "MOBILE",
+                        separateDialCode: true,
+                        utilsScript: "https://bsginstitute.com/Content/Script/utils.js"
+                    });
+                }
+
+            }
+            setInterval(_carganotificacionmovil, (options.TiempoVisualizar * 1000));
         }
         else//es pc
         {
@@ -886,27 +1104,27 @@ var LCSKChat = (function () {
                     $('#chat-box').html(
                         '<div id="formulario">' +
                         '<div class="form-group" style="margin-bottom: 0px;">' +
-                        '<p class="parrafo-titulo" style="margin:0 0 10px;' + options.textoFormularioFont + ';"></p><input type="text" id="chat-box-email" value="' + correo + '" style="padding:0px 5px;::10px;width:93%;font:unset;' + options.textoFormularioFont + '; " class="form-control" placeholder="Email" />' +
+                        '<p class="parrafo-titulo" style="margin:0 0 10px;' + options.textoFormularioFont + ';"></p><input type="text" id="chat-box-email" value="' + correo + '" style="padding:0px 5px;::10px;width:93%;font:unset;display: unset;' + options.textoFormularioFont + '; " class="form-control" placeholder="Email" />' +
                         '<span id="dangeremail" style="float: left; font-size:10px; padding-top:5px; color:red; font-style: italic; display:none; ">E-mail invalido</span>' +
                         '</div>' +
                         '<div class="form-group" style="margin-bottom: 0px;">' +
-                        '<p class="parrafo-titulo" style="margin:0 0 10px;' + options.textoFormularioFont + ';"></p><input type="text" id="chat-box-nombres" value="' + nombres + '" style="padding:0px 5px; width:93%;font:unset;' + options.textoFormularioFont + ';" class="form-control" placeholder="Nombres" />' +
+                        '<p class="parrafo-titulo" style="margin:0 0 10px;' + options.textoFormularioFont + ';"></p><input type="text" id="chat-box-nombres" value="' + nombres + '" style="padding:0px 5px; width:93%;font:unset;display: unset;' + options.textoFormularioFont + ';" class="form-control" placeholder="Nombres" />' +
                         '</div>' +
                         '<div class="form-group" style="margin-bottom: 20px;">' +
-                        '<p class="parrafo-titulo" style="margin:0 0 10px;' + options.textoFormularioFont + '"></p><input type="text" id="chat-box-apellidos" value="' + apellidos + '" style="padding:0px 5px; width:93%;font:unset;' + options.textoFormularioFont + ';" class="form-control" placeholder="Apellidos" />' +
+                        '<p class="parrafo-titulo" style="margin:0 0 10px;' + options.textoFormularioFont + '"></p><input type="text" id="chat-box-apellidos" value="' + apellidos + '" style="padding:0px 5px; width:93%;font:unset;display: unset;' + options.textoFormularioFont + ';" class="form-control" placeholder="Apellidos" />' +
                         '</div>' +
                         '<div class="form-group" style="margin-bottom: 0px;">' +
-                        '<input class="form-control" id="phone" value="' + celular + '" type="tel" placeholder="Número de Teléfono Móvil" style="height:30px; width:93%;font:unset;">' +
+                        '<input class="form-control" id="phonechat" value="' + celular + '" type="tel" placeholder="Número de Teléfono Móvil" style="height:30px; width:93%;font:unset;display: unset;">' +
                         '<span id="dangertelefono" style="float: left; font-size:10px; padding-top:5px; color:red; font-style: italic; display:none; ">Telefono invalido</span>' +
                         '</div>' +
                         '<p style="margin:5px;"></p><input type="button" id="chat-box-recargar" value="[No soy yo]" style="height:30px;' + options.textoFormularioFont + '; " class="btn btn-link"/>' +
                         '<div style="margin-bottom:35px;"> </div>' +
                         '<input type="text" class="hidden" id="chat-box-estadoasesor" value="' + estado + '"/>' +
-                        '<p style ="margin:15px;"><input type="button" style="font-weight:unset;letter-spacing: 0;text-transform: none;box-shadow: inset 0 0 0 0;text-shadow: 0 0px 0px;font-size: 14px;width: 100%;background: ' + options.colorFondoempezarchat + ';color:' + options.colorTextoempezarchat + ';border-color:' + options.colorFondoempezarchat + ';' + options.textoFormularioFont + ';" class="btn btn-warning btn-block"  id="chat-box-crear" value="Empezar a chatear ahora" style=!;height:30px;"/>' +
+                        '<p style ="margin:15px;"><input type="button" style="font-weight:unset;height:30px;letter-spacing: 0;text-transform: none;box-shadow: inset 0 0 0 0;text-shadow: 0 0px 0px;font-size: 14px;width: 100%;background: ' + options.colorFondoempezarchat + ';color:' + options.colorTextoempezarchat + ';border-color:' + options.colorFondoempezarchat + ';' + options.textoFormularioFont + ';" class="btn btn-warning btn-block"  id="chat-box-crear" value="Empezar a chatear ahora"/>' +
                         '</div>'
                     );
 
-                    $("#phone").intlTelInput({
+                    $("#phonechat").intlTelInput({
                         onlyCountries: ['ar', 'bo', 'br', 'cl', 'co', 'cr', 'cu', 'ec', 'sv', 'gt', 'hn', 'mx', 'ni', 'pa', 'py', 'pe', 'do', 'uy', 've'],
                         placeholderNumberType: "MOBILE",
                         separateDialCode: true,
@@ -920,22 +1138,22 @@ var LCSKChat = (function () {
                     $('#chat-box-input').hide();
                     $('#chat-box').html(
                         '<div id="formulario" style="text-align:center">' +
-                        '<p class="parrafo-titulo" style="margin:0 0 10px;' + options.textoFormularioFont + ';"></p><input type="text" id="chat-box-email" style="padding:0px 5px; width:93%;font:unset;' + options.textoFormularioFont + ';" class="form-control" placeholder="Email"/>' +
+                        '<p class="parrafo-titulo" style="margin:0 0 10px;' + options.textoFormularioFont + ';"></p><input type="text" id="chat-box-email" style="padding:0px 5px; width:93%;font:unset;display: unset;' + options.textoFormularioFont + ';" class="form-control" placeholder="Email"/>' +
                         '<span id="dangeremail" style="float: left; font-size:10px; padding-top:5px; color:red; font-style: italic;display:none; ">E-mail invalido</span>' +
-                        '<p class="parrafo-titulo" style="margin:0 0 10px;' + options.textoFormularioFont + ';"></p><input type="text" id="chat-box-nombres" style="padding:0px 5px; width:93%;font:unset;' + options.textoFormularioFont + ';" class="form-control" placeholder="Nombres" />' +
-                        '<p class="parrafo-titulo" style="margin:0 0 10px;' + options.textoFormularioFont + ';"></p><input type="text" id="chat-box-apellidos" style="padding:0px 5px; width:93%;font:unset;' + options.textoFormularioFont + ';" class="form-control" placeholder="Apellidos" />' +
+                        '<p class="parrafo-titulo" style="margin:0 0 10px;' + options.textoFormularioFont + ';"></p><input type="text" id="chat-box-nombres" style="padding:0px 5px; width:93%;font:unset;display: unset;' + options.textoFormularioFont + ';" class="form-control" placeholder="Nombres" />' +
+                        '<p class="parrafo-titulo" style="margin:0 0 10px;' + options.textoFormularioFont + ';"></p><input type="text" id="chat-box-apellidos" style="padding:0px 5px; width:93%;font:unset;display: unset;' + options.textoFormularioFont + ';" class="form-control" placeholder="Apellidos" />' +
                         '<div class="form-group" style="margin-bottom: 0px; margin-top:20px;">' +
-                        '<input class="form-control" id="phone" type="tel" placeholder="Número de Teléfono Móvil" style="height:30px; width:93%;font:unset;">' +
+                        '<input class="form-control" id="phonechat" type="tel" placeholder="Número de Teléfono Móvil" style="height:30px; width:93%;font:unset;display: unset;">' +
                         '<span id="dangertelefono" style="float: left; font-size:10px; padding-top:5px; color:red; font-style: italic;display:none; ">Telefono invalido</span>' +
                         '</div>' +
                         '<p style="margin:20px;"></p>' +
                        
                         '<div style="margin-bottom:70px;"> </div>' +
                         '<input type="text" class="hidden" id="chat-box-estadoasesor" value="' + estado + '"/>' +
-                        '<p style ="margin:15px;"><input type="button" style="font-weight:unset;letter-spacing: 0;text-transform: none;box-shadow: inset 0 0 0 0;text-shadow: 0 0px 0px;font-size: 14px;width: 100%;background: ' + options.colorFondoempezarchat + ';color:' + options.colorTextoempezarchat + ';border-color:' + options.colorFondoempezarchat + ';' + options.textoFormularioFont + ';" class="btn btn-warning btn-block"  id="chat-box-crear" value="Empezar a chatear ahora" style=!;height:30px;"/>' +
+                        '<p style ="margin:15px;"><input type="button" style="font-weight:unset;height:34px;letter-spacing: 0;text-transform: none;box-shadow: inset 0 0 0 0;text-shadow: 0 0px 0px;font-size: 14px;width: 100%;background: ' + options.colorFondoempezarchat + ';color:' + options.colorTextoempezarchat + ';border-color:' + options.colorFondoempezarchat + ';' + options.textoFormularioFont + ';" class="btn btn-warning btn-block"  id="chat-box-crear" value="Empezar a chatear ahora"/>' +
                         '</div>'
                     );
-                    $("#phone").intlTelInput({
+                    $("#phonechat").intlTelInput({
                         onlyCountries: ['ar', 'bo', 'br', 'cl', 'co', 'cr', 'cu', 'ec', 'sv', 'gt', 'hn', 'mx', 'ni', 'pa', 'py', 'pe', 'do', 'uy', 've'],
                         placeholderNumberType: "MOBILE",
                         separateDialCode: true,
