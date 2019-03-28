@@ -27,7 +27,7 @@ from openedx.core.lib.courses import course_image_url
 
   ##pagos
   <script src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
-  <script src="${static.url('images/extra/comprar.js')}"></script>
+  <script src="${static.url('js/comprar-solo.js')}"></script>
 </%block>
 
 <%block name="js_extra">
@@ -200,9 +200,9 @@ from openedx.core.lib.courses import course_image_url
                                               <div class="col-lg-12">
                                                   <div class="form-group">
                                                       <!-- <label for="username">Nombre del titular de la tarjeta</label> -->
-                                                      <input id="card_holder_name" type="text" value="" autocomplete="off" placeholder="Nombres y Apellidos"
+                                                      <input id="nombre_alumno" type="text" value="" autocomplete="off" placeholder="Nombres y Apellidos"
                                                              class="form-control" required
-                                                             data-val-required="El campo de nombres es obligatorio." data-val="true" />
+                                                             data-val-required="El campo de Nombres y Apellidos es obligatorio." data-val="true" />
                                                   </div>
                                               </div>
                                           </div>
@@ -233,12 +233,23 @@ from openedx.core.lib.courses import course_image_url
                                                   </div>
                                               </div>
                                           </div>
-          
+                                          
                                           <div class="row">
-                                              <h3>Tarjetas de Crédito/Débito aceptadas</h3>
-                                              <img src="${static.url('images/icons/card_types.png')}" />
+                                            <h3>Tarjetas de Crédito/Débito aceptadas</h3>
                                           </div>
-          
+                                          
+                                          <div class="row">
+                                            <div class="col-lg-12">
+                                              <div class="form-group">
+                                                <!-- <label for="username">Nombre del titular de la tarjeta</label> -->
+                                                <input id="card_holder_name" type="text" value="" autocomplete="off" placeholder="Titular de la Tarjeta"
+                                                class="form-control" required
+                                                data-val-required="El campo de Titular de la Tarjeta es obligatorio." data-val="true" />
+                                              </div>
+                                            </div>
+                                            <img src="${static.url('images/icons/card_types.png')}" />
+                                          </div>
+
                                           <div class="row">
                                               <div class="col-md-6 col-sm-7">
                                                   <div class="form-group">

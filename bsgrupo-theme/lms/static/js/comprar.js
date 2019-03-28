@@ -1,6 +1,6 @@
 var precio;
 //var url_base = 'http://localhost:34649/';
-var url_base = 'https://apiedx.bsgrupo.com/';
+var url_base = 'https://apiedx.bsginstitute.com/';
 
 // Called when token created successfully.
 var successCallback = function (data) {
@@ -16,6 +16,7 @@ var successCallback = function (data) {
     var url_pago = url_base + 'api/Precio/Pagar';
 
     var data_token = $("#token").val();
+    var data_nombre_alumno = $("#nombre_alumno").val();
     var data_card_holder_name = $("#card_holder_name").val();
     var data_email = $("#email").val();
     var data_phone = $("#phone").val();
@@ -26,6 +27,7 @@ var successCallback = function (data) {
 
     var parametros = {
         token: data_token,
+        nombre_alumno: data_nombre_alumno,
         card_holder_name: data_card_holder_name,
         email: data_email,
         phone: data_phone,
@@ -169,6 +171,7 @@ var cargar_modal_inicial = function () {
 };
 
 var limpiarFormulario = function () {
+    $('#nombre_alumno').val("");
     $('#card_holder_name').val("");
     $('#email').val("");
     $('#phone').val("");
@@ -221,7 +224,7 @@ var mostrarModal = function () {
 };
 
 var limpiarValidacionFormulario = function () {
-
+    $('#nombre_alumno').removeClass("border-warning");
     $('#card_holder_name').removeClass("border-warning");
     $('#email').removeClass("border-warning");
     $('#phone').removeClass("border-warning");
@@ -237,6 +240,11 @@ var validarFormulario = function () {
     limpiarMensajeUsuario();
     limpiarValidacionFormulario();
 
+    if ($('#nombre_alumno').val().trim() === '') {
+        $('#nombre_alumno').addClass("border-warning");
+        validacion = false;
+        //mostrarMensajeUsuario("Ingrese su nombre", false);
+    }
     if ($('#card_holder_name').val().trim() === '') {
         $('#card_holder_name').addClass("border-warning");
         validacion = false;

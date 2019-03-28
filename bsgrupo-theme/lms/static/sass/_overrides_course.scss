@@ -19,4 +19,15 @@ body.view-in-course{
     p {
         font-family: $myriad_regular;
     }
-}   
+}
+.wrapper-course-material .course-tabs {
+    float: left;
+}
+#Boton-ComprarCurso {
+    float: right;
+}
+//temporal
+.home {
+    max-width: 1180px !important;
+    padding: 0px 20px 10px 20px;
+}

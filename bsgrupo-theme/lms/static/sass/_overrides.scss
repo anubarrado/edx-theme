@@ -494,6 +494,18 @@ section > .course-profile{
     text-align: center;
     text-decoration: none;
 }
+#Boton-ComprarCurso {
+    background: $naranja_bs;
+    border: none;
+    border-radius: 5px;
+    color: white !important;
+    font-family: $myriad_regular !important;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none;
+}
 
 #cuadroMensajes {
     padding: 15px;
