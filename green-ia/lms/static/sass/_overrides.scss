@@ -28,6 +28,9 @@
         list-style-type: none;
         padding-left: 10px;
     }
+    > OL > LI {
+        padding-bottom: 20px;
+    }
     > OL > LI::before {
         content: counter(item) ".0 ";
         counter-increment: item;
