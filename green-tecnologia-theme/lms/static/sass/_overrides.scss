@@ -98,3 +98,41 @@ section > .course-profile{
         }
     }
 }
+
+////another pages
+//privacy
+#privacy-policy-content {
+    text-align: justify;
+    li {
+        padding-bottom: 15px;
+    }
+}
+
+//tos
+#tos-content {
+    text-align: justify;
+    > OL {
+        counter-reset: item;
+        list-style-type: none;
+        padding-left: 10px;
+    }
+    > OL > LI {
+        padding-bottom: 20px;
+    }
+    > OL > LI::before {
+        content: counter(item) ".0 ";
+        counter-increment: item;
+        font-weight: bolder;
+    }
+    LI > OL {
+        counter-reset: subitem;
+        list-style-type: none;
+        padding-left: 10px;
+    }
+        
+    LI > OL > LI::before {
+        content: counter(item) "." counters(subitem, ".") " ";
+        counter-increment: subitem;
+        font-weight: bolder;
+    }
+}
